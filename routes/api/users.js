@@ -7,11 +7,16 @@ const config = require("config");
 
 const User = require("../../models/User");
 
+// @route   GET api/users
+// @desc    Home route
+// @access  Public
 router.get("/", (req, res) => {
   res.send("Users API!");
 });
 
-// Create User
+// @route   POST api/users
+// @desc    Register User
+// @access  Public
 router.post(
   "/",
   [
@@ -36,6 +41,7 @@ router.post(
     try {
       let user = await User.findOne({ email });
 
+      // Check if there is User with given email address
       if (user) {
         return res.status(400).json({ errors: "User already exists" });
       }
@@ -47,11 +53,14 @@ router.post(
         password
       };
 
+      // Encrypt Password
       const salt = await bcrypt.genSaltSync(10);
       newUser.password = await bcrypt.hashSync(password, salt);
 
+      // Create User
       user = await new User(newUser);
 
+      // Save User
       await user.save();
 
       const payload = {
@@ -60,13 +69,14 @@ router.post(
         }
       };
 
+      // Return jsonwebtoken
       jwt.sign(
         payload,
         config.get("jwtSecret"),
         { expiresIn: "1h" },
         (err, token) => {
-            if(err) throw (err);
-            res.json({ token })
+          if (err) throw err;
+          res.json({ token });
         }
       );
     } catch (err) {
