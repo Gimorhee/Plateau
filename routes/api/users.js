@@ -43,7 +43,7 @@ router.post(
 
       // Check if there is User with given email address
       if (user) {
-        return res.status(400).json({ errors: "User already exists" });
+        return res.status(400).json({ errors: [{ msg: 'User already exists, please try again' }] });
       }
 
       const newUser = {

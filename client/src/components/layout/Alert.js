@@ -12,7 +12,7 @@ const Alert = ({ alerts }) =>
       </div>
     ))
   ) : (
-    <div className="alert alert-danger hide-alert">test</div>
+    <div className="alert alert-danger hide-alert">hide-alert</div>
   );
 
 Alert.propTypes = {

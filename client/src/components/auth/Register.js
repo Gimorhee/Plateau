@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 
 import "../../css/register.css";
 
-const Register = ({ setAlert }) => {
+const Register = ({ setAlert, register }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -26,6 +27,15 @@ const Register = ({ setAlert }) => {
 
     if(password !== password2) {
       setAlert("Password must match, please try again!", "danger")
+    } else {
+      const newUser = {
+        firstName,
+        lastName,
+        email,
+        password
+      }
+
+      register(newUser);
     }
   }
 
@@ -41,7 +51,7 @@ const Register = ({ setAlert }) => {
           placeholder="First Name"
           value={firstName}
           onChange={e => onChange(e)}
-          required
+          
           autoFocus
         />
         <input
@@ -51,7 +61,7 @@ const Register = ({ setAlert }) => {
           placeholder="Last Name"
           value={lastName}
           onChange={e => onChange(e)}
-          required
+          
         />
         <input
           type="email"
@@ -60,7 +70,7 @@ const Register = ({ setAlert }) => {
           placeholder="Email address"
           value={email}
           onChange={e => onChange(e)}
-          required
+          
         />
         <input
           type="password"
@@ -69,7 +79,7 @@ const Register = ({ setAlert }) => {
           placeholder="Password"
           value={password}
           onChange={e => onChange(e)}
-          required
+          
         />
         <input
           type="password"
@@ -78,7 +88,7 @@ const Register = ({ setAlert }) => {
           placeholder="Confirm Password"
           value={password2}
           onChange={e => onChange(e)}
-          required
+          
         />
         <div className="checkbox mb-3"></div>
         <button className="btn btn-lg btn-dark btn-block" type="submit">
@@ -96,4 +106,4 @@ Register.propTypes = {
   setAlert: PropTypes.func.isRequired
 }
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
