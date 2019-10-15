@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { setAlert } from "../../actions/alert";
+
 import "../../css/register.css";
 
-const Register = props => {
+const Register = ({ setAlert }) => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -17,9 +21,17 @@ const Register = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const onSubmit = e => {
+    e.preventDefault();
+
+    if(password !== password2) {
+      setAlert("Password must match, please try again!", "danger")
+    }
+  }
+
   return (
-    <div>
-      <form className="form-signin">
+    <Fragment>
+      <form className="form-signin" onSubmit={e => onSubmit(e)}>
         <h1 className="h1 mb-3 font-weight-normal">Sign Up</h1>
         <p className="p mb-3 font-weight-normal">Create Your Account</p>
         <input
@@ -30,7 +42,7 @@ const Register = props => {
           value={firstName}
           onChange={e => onChange(e)}
           required
-          autofocus
+          autoFocus
         />
         <input
           type="text"
@@ -76,8 +88,12 @@ const Register = props => {
           Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </form>
-    </div>
+    </Fragment>
   );
 };
 
-export default Register;
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired
+}
+
+export default connect(null, { setAlert })(Register);

@@ -1,0 +1,12 @@
+.alert {
+    padding: 0.8rem;
+    margin: auto;
+    opacity: 0.9;
+    width: 410px;
+    color: #333;
+    text-align: center;
+}
+
+.hide-alert {
+    opacity: 0;
+}
