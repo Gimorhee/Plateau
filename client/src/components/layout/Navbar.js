@@ -2,10 +2,11 @@ import React, { Fragment } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
 
 import "../../css/navbar.css";
 
-const Navibar = ({ auth: { isAuthenticated, loading } }) => {
+const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestUser = (
     <Fragment>
       <NavItem>
@@ -29,10 +30,14 @@ const Navibar = ({ auth: { isAuthenticated, loading } }) => {
   const authUser = (
     <Fragment>
       <NavItem>
-        <NavLink className="Nav-Item" href="/landing">
-          Logout
+        <NavLink className="Nav-Item">
+          <a onClick={logout} href="/login" className="Nav-Logout">
+            <i className="fas fa-sign-out-alt" />{" "}
+            <span className="hide-sm">Logout</span>
+          </a>
         </NavLink>
       </NavItem>
+
       <NavItem>
         <NavLink className="Nav-Item" href="/cart">
           My Cart
@@ -56,11 +61,15 @@ const Navibar = ({ auth: { isAuthenticated, loading } }) => {
 };
 
 Navibar.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Navibar);
+export default connect(
+  mapStateToProps,
+  { logout }
+)(Navibar);

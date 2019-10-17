@@ -4,7 +4,8 @@ import {
   USER_LOADED,
   USER_NOT_LOADED,
   LOGIN_SUCCESS,
-  LOGIN_FAIL
+  LOGIN_FAIL,
+  LOGOUT
 } from "./types";
 
 import { setAlert } from "./alert";
@@ -94,4 +95,11 @@ export const login = formData => async dispatch => {
       type: LOGIN_FAIL
     });
   }
+};
+
+// Logout User
+export const logout = () => dispatch => {
+  dispatch({
+    type: LOGOUT
+  });
 };

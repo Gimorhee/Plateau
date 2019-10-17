@@ -33,7 +33,6 @@ const Landing = ({ auth: { isAuthenticated } }) => {
 };
 
 Landing.propTypes = {
-  setAlert: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
