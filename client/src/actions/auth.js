@@ -2,8 +2,11 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
-  USER_NOT_LOADED
+  USER_NOT_LOADED,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
 } from "./types";
+
 import { setAlert } from "./alert";
 import setAuthToken from "../utils/setAuthToken";
 import axios from "axios";
@@ -25,6 +28,8 @@ export const register = formData => async dispatch => {
       type: REGISTER_SUCCESS,
       payload: res.data
     });
+
+    dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -38,6 +43,7 @@ export const register = formData => async dispatch => {
   }
 };
 
+// Load Authorized User Info
 export const loadUser = () => async dispatch => {
     try {
         if(localStorage.token) {
@@ -50,9 +56,42 @@ export const loadUser = () => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         })
+        
     } catch (err) {
         dispatch({
             type: USER_NOT_LOADED
         })
     }
 }
+
+// Login User
+export const login = formData => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    const body = JSON.stringify(formData);
+
+    const res = await axios.post("/api/auth", body, config);
+
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data
+    });
+
+    dispatch(loadUser());
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: LOGIN_FAIL
+    });
+  }
+};

@@ -1,8 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
 import "../../css/landing.css";
 
-const Landing = props => {
+const Landing = ({ auth: { isAuthenticated } }) => {
+  if (isAuthenticated) {
+    return <Redirect to="/main" />;
+  }
+
   return (
     <section className="Landing">
       <h1 className="Landing-Header">
@@ -25,4 +32,13 @@ const Landing = props => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);
