@@ -1,47 +1,25 @@
+.container {
+  max-width: 960px;
+}
 
-.Landing {
-    position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
-      url("../images/BANNER.jpg") no-repeat center center/cover;
-    height: 100vh;
-    font-family: "Quicksand", sans-serif;
-  }
-  
-  .Landing-Header {
-    color: #f9f9f9;
-    font-size: 5rem;
-    font-weight: 900;
-    text-align: center;
-    padding-top: 20rem;
-  }
-  
-  .Landing-Buttons {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  button.btn {
-    margin: 1rem;
-    font-size: 2rem;
-    border: 3px #f9f9f9 solid;
-    text-decoration: none;
-  }
-  
-  .Landing-Register {
-    color: #f9f9f9;
-  }
-  
-  .Landing-Register:hover {
-    text-decoration: none;
-    color: #45454d;
-  }
-  
-  .Landing-Login {
-    color: #45454d;
-  }
-  
-  .Landing-Login:hover {
-    text-decoration: none;
-    color: #45454d;
-  }
+.site-header {
+  background-color: white;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+
+.site-header a:hover {
+  color: #272121;
+  text-decoration: none;
+  border-bottom: 2px solid #272121;
+  font-weight: 900;
+}
+

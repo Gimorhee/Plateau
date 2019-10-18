@@ -6,7 +6,13 @@ import Footer from "./components/layout/Footer";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Alert from "./components/layout/Alert";
-import Main from "./components/layout/Main";
+import Outer from "./components/items/Outer";
+import Top from "./components/items/Top";
+import Shirts from "./components/items/Shirts";
+import Pants from "./components/items/Pants";
+import Shoes from "./components/items/Shoes";
+import Accessory from "./components/items/Accessory";
+
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
@@ -33,7 +39,12 @@ function App() {
           <Switch>
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/main" component={Main} />
+            <Route exact path="/outer" component={Outer} />
+            <Route exact path="/top" component={Top} />
+            <Route exact path="/shirts" component={Shirts} />
+            <Route exact path="/pants" component={Pants} />
+            <Route exact path="/shoes" component={Shoes} />
+            <Route exact path="/accessory" component={Accessory} />
           </Switch>
           <Footer />
         </Fragment>

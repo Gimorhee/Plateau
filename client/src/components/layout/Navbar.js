@@ -32,7 +32,6 @@ const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <NavItem>
         <NavLink className="Nav-Item">
           <a onClick={logout} href="/login" className="Nav-Logout">
-            <i className="fas fa-sign-out-alt" />{" "}
             <span className="hide-sm">Logout</span>
           </a>
         </NavLink>
