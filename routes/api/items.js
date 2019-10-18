@@ -74,4 +74,32 @@ router.post(
   }
 );
 
+// @route   PUT api/items/update
+// @desc    Modify a item info
+// @access  Public
+router.put("/update/:id", async (req, res) => {
+    try {
+        let item = await Item.findById(req.params.id);
+
+        if (!item) {
+            return res.status(400).json({ msg: "Item not found" });
+        }
+
+        const { name, price, image, type } = req.body;
+
+        item.name = name;
+        item.price = price;
+        item.image = image;
+        item.type = type;
+
+        await item.save();
+
+        res.send("Item successfully updated");
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server error");
+    }
+})
+
 module.exports = router;

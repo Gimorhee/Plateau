@@ -34,6 +34,12 @@ const Landing = ({ getItems, items: { items } }) => {
           </a>
         </div>
       </nav>
+    <br />
+      <div class="slider">
+        {items.map(item=> (
+          <div key={item._id}><img src={item.image} alt=""/></div>
+        ))}
+      </div>
     </Fragment>
   );
 };
