@@ -1,8 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getItems } from "../../actions/items";
 
 import "../../css/landing.css";
 
-const Landing = props => {
+const Landing = ({ getItems, items: { items } }) => {
+  useEffect(() => {
+    getItems();
+  }, []);
+
   return (
     <Fragment>
       <nav class="site-header sticky-top py-1">
@@ -31,4 +38,16 @@ const Landing = props => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  items: PropTypes.object.isRequired,
+  getItems: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({
+  items: state.items
+});
+
+export default connect(
+  mapStateToProps,
+  { getItems }
+)(Landing);

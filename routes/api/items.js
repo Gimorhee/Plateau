@@ -4,8 +4,18 @@ const { check, validationResult } = require("express-validator");
 
 const Item = require("../../models/Item");
 
-router.get("/", (req, res) => {
-  res.send("Items API");
+// @route   GET api/items
+// @desc    Get all items
+// @access  Public
+router.get("/", async (req, res) => {
+  try {
+    let items = await Item.find();
+
+    res.send(items);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
 });
 
 // @route   POST api/items
@@ -37,6 +47,11 @@ router.post(
     const { name, price, image, type } = req.body;
 
     try {
+        let item = await Item.findOne({ name });
+
+        if (item) {
+            return res.status(400).json({ errors: [{ msg: "Item already exists!" }] });
+        }
       const newItem = {
         name,
         price,
@@ -45,13 +60,13 @@ router.post(
       };
 
       // Register Item
-      let item = new Item(newItem);
+      item = new Item(newItem);
 
       // Save Item
       await item.save();
 
       res.json(item);
-      
+
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server error");

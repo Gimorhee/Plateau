@@ -17,11 +17,9 @@ const ItemSchema = new Schema({
   size: {
     type: String
   },
-  color: {
-    type: String
-  },
   type: {
-    type: String
+    type: String,
+    required: true
   },
   date: {
     type: Date,
