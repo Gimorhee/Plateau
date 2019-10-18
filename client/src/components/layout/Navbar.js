@@ -9,53 +9,35 @@ import "../../css/navbar.css";
 const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestUser = (
     <Fragment>
-      <NavItem>
-        <NavLink className="Nav-Item" href="/register">
-          Register
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink className="Nav-Item" href="/login">
-          Login
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink className="Nav-Item" href="/cart">
-          My Cart
-        </NavLink>
-      </NavItem>
+      <a href="/register">Register</a>
+      <a href="/login">Login</a>
+      <a href="/cart">My Cart</a>
     </Fragment>
   );
 
   const authUser = (
     <Fragment>
-      <NavItem>
-        <NavLink className="Nav-Item">
-          <a onClick={logout} href="/login" className="Nav-Logout">
-            <span className="hide-sm">Logout</span>
-          </a>
-        </NavLink>
-      </NavItem>
-
-      <NavItem>
-        <NavLink className="Nav-Item" href="/cart">
-          My Cart
-        </NavLink>
-      </NavItem>
+      <a onClick={logout} href="/login" className="Nav-Logout">
+        <span className="hide-sm">Logout</span>
+      </a>
+      <a href="/cart">My Cart</a>
     </Fragment>
   );
 
   return (
-    <Navbar className="Nav" light expand="md">
-      <NavbarBrand className="Nav-Brand" href="/">
-        Plateau
-      </NavbarBrand>
-      <Nav className="ml-auto" navbar>
+    <Fragment>
+      <Navbar id="navbar" className="Nav" light expand="md">
+        <NavbarBrand className="Nav-Brand" href="/">
+          Plateau
+        </NavbarBrand>
+      </Navbar>
+      <div className="Sub-Nav">
         {!loading && (
           <Fragment>{isAuthenticated ? authUser : guestUser}</Fragment>
         )}
-      </Nav>
-    </Navbar>
+      </div>
+      <hr className="Nav-Underline" />
+    </Fragment>
   );
 };
 
