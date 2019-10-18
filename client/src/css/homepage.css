@@ -22,19 +22,6 @@
   font-weight: 900;
 }
 
-.slider {
-  /* line them up horizontally */
-  display: flex;
-
-  /* allow for scrolling */
-  overflow-x: auto;
-
-  /* make it smooth on iOS */
-  -webkit-overflow-scrolling: touch;
-}
-.slider > div {
-  /* make sure the width is honored */
-  flex-shrink: 0;
-  width: 30%;
-  height: 30%;
+.Homepage-Image {
+  width: 100%
 }
