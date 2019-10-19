@@ -12,6 +12,9 @@ const Carousel = ({ items }) => {
     slidesToShow: 3,
     slidesToScroll: 3,
     initialSlide: 0,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1024,
@@ -39,6 +42,7 @@ const Carousel = ({ items }) => {
       }
     ]
   };
+
   return (
     <Fragment>
       <Slider {...settings}>

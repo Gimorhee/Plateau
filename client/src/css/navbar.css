@@ -3,7 +3,7 @@
   z-index: 1;
   top: 0;
   height: 150px;
-  background: white;
+  background: #f7f7f7;
   font-family: 'Indie Flower', cursive;
   font-weight: 600;
 }
@@ -25,6 +25,7 @@
 .Sub-Nav {
   display: flex;
   justify-content: center;
+  background: #f7f7f7;
 }
 
 .Sub-Nav a {
@@ -44,6 +45,7 @@
 
 .Nav-Underline {
   border-bottom: 1px solid #45454d;
+  margin-top: 0;
 }
 
 @media (max-width: 700px) {
