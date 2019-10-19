@@ -200,18 +200,25 @@ router.post(
 // @access  Public
 router.put("/update/:id", async (req, res) => {
   try {
-    let item = await Item.findById(req.params.id);
+    const { name, price, image, type } = req.body;
+
+    let item = await Item.findOneAndUpdate(
+      {
+        _id: req.params.id
+      },
+      {
+        $set: {
+          name,
+          price,
+          image,
+          type
+        }
+      }
+    );
 
     if (!item) {
       return res.status(400).json({ msg: "Item not found" });
     }
-
-    const { name, price, image, type } = req.body;
-
-    item.name = name;
-    item.price = price;
-    item.image = image;
-    item.type = type;
 
     await item.save();
 
