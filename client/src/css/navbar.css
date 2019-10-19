@@ -37,6 +37,15 @@
   text-decoration: none;
 }
 
+.Sub-Nav p {
+  margin: 7px;
+  color: #999;
+  font-size: 1.5rem;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  text-decoration: none;
+}
+
 .Sub-Nav a:hover {
   color: #5f6769;
   text-decoration: none;

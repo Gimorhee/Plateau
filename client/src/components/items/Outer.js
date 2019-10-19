@@ -1,14 +1,32 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { getTypeItems } from "../../actions/items";
 import PropTypes from "prop-types";
+import SubNav from "../layout/SubNav.js";
 
-const Outer = ({ getTypeItems }) => {
+import "../../css/items.css";
+
+const Outer = ({ getTypeItems, items: { items } }) => {
   useEffect(() => {
     getTypeItems("outer");
   }, []);
 
-  return <div>Outer</div>;
+  return (
+    <Fragment>
+      <SubNav />
+      <div className="Item-Container">
+        {items.map(item => (
+          <div key={item._id}>
+            <img className="Item-Image" src={item.image} alt="" />
+            <div className="Item-Info">
+              <h2 className="Item-Name">{item.name}</h2>
+              <p className="Item-Price">${item.price}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Fragment>
+  );
 };
 
 Outer.propTypes = {
@@ -16,7 +34,11 @@ Outer.propTypes = {
   getItems: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  items: state.items
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { getTypeItems }
 )(Outer);

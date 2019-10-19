@@ -17,6 +17,7 @@ const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authUser = (
     <Fragment>
+      <p> Welcome😍 </p>
       <a onClick={logout} href="/login" className="Nav-Logout">
         <span className="hide-sm">Logout</span>
       </a>

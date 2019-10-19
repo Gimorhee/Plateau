@@ -1,0 +1,26 @@
+.Item-Container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; 
+}
+
+.Item-Image {
+    padding: 1rem;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.Item-Info {
+    margin-left: 30px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.Item-Name {
+    font-weight: 900;
+}
+
+div {
+    overflow: hidden;
+}

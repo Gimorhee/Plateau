@@ -21,5 +21,10 @@
   color: #09d3ac;
 }
 
-
-
+html {
+  overflow:   scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
