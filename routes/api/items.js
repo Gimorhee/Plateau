@@ -18,6 +18,126 @@ router.get("/", async (req, res) => {
   }
 });
 
+// @route   GET api/items/outer
+// @desc    Get all outers
+// @access  Public
+router.get("/outer", async (req, res) => {
+  try {
+    let outers = await Item.find({ type: "outer" });
+
+    if (outers.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as outer" }] });
+    }
+
+    res.send(outers);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   GET api/items/top
+// @desc    Get all tops
+// @access  Public
+router.get("/top", async (req, res) => {
+  try {
+    let tops = await Item.find({ type: "top" });
+
+    if (tops.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as top" }] });
+    }
+
+    res.send(tops);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   GET api/items/shirts
+// @desc    Get all shirts
+// @access  Public
+router.get("/shirts", async (req, res) => {
+  try {
+    let shirts = await Item.find({ type: "shirts" });
+
+    if (shirts.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as shirts" }] });
+    }
+
+    res.send(shirts);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   GET api/items/pants
+// @desc    Get all pants
+// @access  Public
+router.get("/pants", async (req, res) => {
+  try {
+    let pants = await Item.find({ type: "pants" });
+
+    if (pants.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as pants" }] });
+    }
+
+    res.send(pants);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   GET api/items/shoes
+// @desc    Get all shoes
+// @access  Public
+router.get("/shoes", async (req, res) => {
+  try {
+    let shoes = await Item.find({ type: "shoes" });
+
+    if (shoes.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as shoes" }] });
+    }
+
+    res.send(shoes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
+// @route   GET api/items/accessory
+// @desc    Get all accessories
+// @access  Public
+router.get("/accessory", async (req, res) => {
+  try {
+    let accessory = await Item.find({ type: "accessory" });
+
+    if (accessory.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No items registered as accessory" }] });
+    }
+
+    res.send(accessory);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 // @route   POST api/items
 // @desc    Register a item
 // @access  Public
@@ -47,11 +167,13 @@ router.post(
     const { name, price, image, type } = req.body;
 
     try {
-        let item = await Item.findOne({ name });
+      let item = await Item.findOne({ name });
 
-        if (item) {
-            return res.status(400).json({ errors: [{ msg: "Item already exists!" }] });
-        }
+      if (item) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Item already exists!" }] });
+      }
       const newItem = {
         name,
         price,
@@ -66,10 +188,9 @@ router.post(
       await item.save();
 
       res.json(item);
-
     } catch (err) {
-        console.error(err.message);
-        res.status(500).send("Server error");
+      console.error(err.message);
+      res.status(500).send("Server error");
     }
   }
 );
@@ -78,28 +199,27 @@ router.post(
 // @desc    Modify a item info
 // @access  Public
 router.put("/update/:id", async (req, res) => {
-    try {
-        let item = await Item.findById(req.params.id);
+  try {
+    let item = await Item.findById(req.params.id);
 
-        if (!item) {
-            return res.status(400).json({ msg: "Item not found" });
-        }
-
-        const { name, price, image, type } = req.body;
-
-        item.name = name;
-        item.price = price;
-        item.image = image;
-        item.type = type;
-
-        await item.save();
-
-        res.send("Item successfully updated");
-
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send("Server error");
+    if (!item) {
+      return res.status(400).json({ msg: "Item not found" });
     }
-})
+
+    const { name, price, image, type } = req.body;
+
+    item.name = name;
+    item.price = price;
+    item.image = image;
+    item.type = type;
+
+    await item.save();
+
+    res.send("Item successfully updated");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;

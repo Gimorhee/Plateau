@@ -19,7 +19,7 @@
 
 .Nav-Logout:hover {
   text-decoration: none;
-  color: #45454d;
+  color: #5f6769;
 }
 
 .Sub-Nav {
@@ -38,13 +38,13 @@
 }
 
 .Sub-Nav a:hover {
-  color: #272121;
+  color: #5f6769;
   text-decoration: none;
   font-weight: 900;
 }
 
 .Nav-Underline {
-  border-bottom: 1px solid #45454d;
+  border-bottom: 1px solid #5f6769;
   margin-top: 0;
 }
 

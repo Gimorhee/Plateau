@@ -1,4 +1,4 @@
-import { GET_ALL_ITEMS, ITEMS_ERROR } from "../actions/types";
+import { GET_ALL_ITEMS, ITEMS_ERROR, GET_TYPE_ITEMS } from "../actions/types";
 
 const initialState = {
   item: null,
@@ -12,6 +12,7 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case GET_ALL_ITEMS:
+    case GET_TYPE_ITEMS:
       return {
         ...state,
         items: payload,

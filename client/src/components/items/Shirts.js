@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { getTypeItems } from "../../actions/items";
+import PropTypes from "prop-types";
 
-const Shirts = props => {
-    return (
-        <div>
-            Shirts
-        </div>
-    )
-}
+const Shirts = ({ getTypeItems }) => {
+  useEffect(() => {
+    getTypeItems("shirts");
+  }, []);
 
-export default Shirts
+  return <div>Shirts</div>;
+};
+
+Shirts.propTypes = {
+  items: PropTypes.object.isRequired,
+  getItems: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { getTypeItems }
+)(Shirts);

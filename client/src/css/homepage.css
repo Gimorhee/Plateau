@@ -17,7 +17,7 @@
 }
 
 .site-header a:hover {
-  color: #272121;
+  color: #5f6769;
   text-decoration: underline;
   font-weight: 900;
 }
@@ -26,3 +26,4 @@
   margin: auto;
   width: 100%;
 }
+

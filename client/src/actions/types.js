@@ -14,4 +14,5 @@ export const LOGOUT = "LOGOUT";
 // Item
 export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 export const ITEMS_ERROR = "ITEMS_ERROR";
+export const GET_TYPE_ITEMS = "GET_TYPE_ITEMS";
 
