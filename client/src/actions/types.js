@@ -15,4 +15,4 @@ export const LOGOUT = "LOGOUT";
 export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 export const ITEMS_ERROR = "ITEMS_ERROR";
 export const GET_TYPE_ITEMS = "GET_TYPE_ITEMS";
-
+export const GET_ITEM = "GET_ITEM";

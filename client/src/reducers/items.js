@@ -1,4 +1,9 @@
-import { GET_ALL_ITEMS, ITEMS_ERROR, GET_TYPE_ITEMS } from "../actions/types";
+import {
+  GET_ALL_ITEMS,
+  ITEMS_ERROR,
+  GET_TYPE_ITEMS,
+  GET_ITEM
+} from "../actions/types";
 
 const initialState = {
   item: null,
@@ -18,6 +23,12 @@ export default function(state = initialState, action) {
         items: payload,
         loading: false
       };
+    case GET_ITEM:
+      return {
+        ...state,
+        item: payload,
+        loading: false
+      }
     case ITEMS_ERROR:
       return {
         ...state,

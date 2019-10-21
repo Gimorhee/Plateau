@@ -3,15 +3,18 @@ import { connect } from "react-redux";
 import { getTypeItems } from "../../actions/items";
 import PropTypes from "prop-types";
 import SubNav from "../layout/SubNav.js";
+import Spinner from "../layout/Spinner";
 
 import "../../css/items.css";
 
-const Shirts = ({ getTypeItems, items: { items } }) => {
+const Shirts = ({ getTypeItems, items: { items, loading } }) => {
   useEffect(() => {
     getTypeItems("shirts");
   }, []);
 
-  return (
+  return loading || items === null ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <SubNav />
       <div className="Item-Container">

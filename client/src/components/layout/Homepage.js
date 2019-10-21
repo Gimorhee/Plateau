@@ -4,15 +4,18 @@ import PropTypes from "prop-types";
 import { getItems } from "../../actions/items";
 import Carousel from "./Carousel";
 import SubNav from "./SubNav";
+import Spinner from "./Spinner";
 
 import "../../css/homepage.css";
 
-const Homepage = ({ getItems, items: { items } }) => {
+const Homepage = ({ getItems, items: { items, loading } }) => {
   useEffect(() => {
     getItems();
   }, []);
 
-  return (
+  return loading || items === null ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <SubNav />
       <Carousel items={items} />

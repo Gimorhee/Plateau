@@ -6,7 +6,7 @@ import { logout } from "../../actions/auth";
 
 import "../../css/navbar.css";
 
-const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Navibar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   const guestUser = (
     <Fragment>
       <a href="/register">Register</a>
@@ -17,11 +17,15 @@ const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const authUser = (
     <Fragment>
-      <p> Welcome😍 </p>
+      <p> Welcome {user && user.firstName}😎</p>
       <a onClick={logout} href="/login" className="Nav-Logout">
+        <i className="fas fa-sign-out-alt hide-icon"></i>
         <span className="hide-sm">Logout</span>
       </a>
-      <a href="/cart">My Cart</a>
+      <a href="/cart">
+        <i className="fas fa-shopping-cart hide-icon"></i>
+        <span className="hide-sm">My Cart</span>
+      </a>
     </Fragment>
   );
 

@@ -2,25 +2,37 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { getTypeItems } from "../../actions/items";
 import PropTypes from "prop-types";
-import SubNav from "../layout/SubNav.js";
+import SubNav from "../layout/SubNav";
+import Spinner from "../layout/Spinner";
 
 import "../../css/items.css";
 
-const Outer = ({ getTypeItems, items: { items } }) => {
+const Outer = ({ getTypeItems, items: { items, loading } }) => {
   useEffect(() => {
     getTypeItems("outer");
   }, []);
 
-  return (
+  return loading || items === null ? (
+    <Spinner />
+  ) : (
     <Fragment>
       <SubNav />
-      <div className="Item-Container">
+      <div className="Items-Container">
         {items.map(item => (
           <div key={item._id}>
-            <img className="Item-Image" src={item.image} alt="" />
-            <div className="Item-Info">
-              <h2 className="Item-Name">{item.name}</h2>
-              <p className="Item-Price">${item.price}</p>
+            <img className="Items-Image" src={item.image} alt="" />
+            <div className="Items-Info">
+              <div className="Items-Spec">
+                <h2 className="Items-Name">{item.name}</h2>
+                <p className="Items-Price">${item.price}</p>
+              </div>
+              <button className="Items-Button">
+                <a className="Items-Link" href={`/items/${item._id}`}>Detail</a>
+              </button>
+              {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
+              <button className="Items-Button" href="/cart">
+                <a className="Items-Link" href="/cart">Add</a>
+              </button>
             </div>
           </div>
         ))}

@@ -63,12 +63,18 @@
   }
 
   .Nav-Brand {
-    font-size: 4rem !important;
+    font-size: 6rem !important;
   }
 }
 
 @media (max-width: 800px) {
   .navbar {
     height: 150px;
+  }
+}
+
+@media (min-width: 700px) {
+  .hide-icon {
+    display: none;
   }
 }
