@@ -43,7 +43,7 @@ const Outer = ({ getTypeItems, items: { items, loading } }) => {
 
 Outer.propTypes = {
   items: PropTypes.object.isRequired,
-  getItems: PropTypes.func.isRequired
+  getTypeItems: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

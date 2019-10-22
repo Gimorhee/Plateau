@@ -17,13 +17,13 @@ const Top = ({ getTypeItems, items: { items, loading } }) => {
   ) : (
     <Fragment>
       <SubNav />
-      <div className="Item-Container">
+      <div className="Items-Container">
         {items.map(item => (
           <div key={item._id}>
-            <img className="Item-Image" src={item.image} alt="" />
-            <div className="Item-Info">
-              <h2 className="Item-Name">{item.name}</h2>
-              <p className="Item-Price">${item.price}</p>
+            <img className="Items-Image" src={item.image} alt="" />
+            <div className="Items-Info">
+              <h2 className="Items-Name">{item.name}</h2>
+              <p className="Items-Price">${item.price}</p>
             </div>
           </div>
         ))}
@@ -34,7 +34,7 @@ const Top = ({ getTypeItems, items: { items, loading } }) => {
 
 Top.propTypes = {
   items: PropTypes.object.isRequired,
-  getItems: PropTypes.func.isRequired
+  getTypeItems: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
