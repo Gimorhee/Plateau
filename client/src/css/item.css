@@ -40,8 +40,8 @@ tr {
 }
 
 .Item-Type {
-    margin-bottom: 30px;
-    font-size: 35px;
+    margin-bottom: 25px;
+    font-size: 25px;
     font-weight: 900px;
 }
 
@@ -70,17 +70,64 @@ tr {
 select {
     width: 250px;
     font-size: 40px !important;
-    border: 2px outset;
-    text-align: center;
-    border-radius: 10px;
+    color: #212529;
+    font-size: 30px;
+    font-weight: 700;
+    height: 65px;
+    width: 250px;
+    border: 2px solid #212529;
+    border-radius: 20px;
+    background: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    box-shadow: 0 6px #3c4245;
+}
+
+select:hover {
+    box-shadow: 0 4px #3c4245;
+    top: 2px;
+}
+
+select:active {
+    box-shadow: none;
+    top: 6px;
+}
+
+select:focus {
+    outline: 0;
 }
 
 .Item-Button {
-    background: white;
-    border: 2px outset;
+    color: #212529;
+    font-size: 30px;
+    font-weight: 700;
+    height: 65px;
     width: 250px;
-    font-size: 35px !important;
-    border-radius: 10px !important;
+    border: 2px solid #212529;
+    border-radius: 20px;
+    background: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    box-shadow: 0 6px #3c4245;
+    margin-bottom: 10px;
+}
+
+.Item-Button:hover {
+    box-shadow: 0 4px #3c4245;
+    top: 2px;
+}
+
+.Item-Button:active {
+    box-shadow: none;
+    top: 6px;
+}
+
+.Item-Button:focus {
+    outline: 0;
 }
 
 @media (max-width: 1200px) {
@@ -111,7 +158,7 @@ select {
         width: 350px;
     }
 
-    .Items-Button {
+    .Item-Button {
         width: 350px;
     }
 }
