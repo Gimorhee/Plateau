@@ -17,14 +17,14 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
     <Fragment>
       <div className="Item-Container">
         <div className="Item-Detail">
-        <img ClassName="Item-Image" src={item.image} alt="" />
-          <div>
+          <img ClassName="Item-Image" src={item.image} alt="" />
+          <div className="Item-Info">
             <h1 className="Item-Name">{item.name}</h1>
             <h2 className="Item-Price">{item.price}</h2>
             <h3 className="Item-Type">
               {item.type[0].toUpperCase() + item.type.slice(1)}
             </h3>
-            <h4 className="Item-Infoo">
+            <h4>
               <h6>Description:</h6>
               <p> This is a mockup description. </p>
               <p>

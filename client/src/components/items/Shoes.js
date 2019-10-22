@@ -13,7 +13,7 @@ const Shoes = ({ getTypeItems }) => {
 
 Shoes.propTypes = {
   items: PropTypes.object.isRequired,
-  getItems: PropTypes.func.isRequired
+  getTypeItems: PropTypes.func.isRequired
 };
 
 export default connect(
