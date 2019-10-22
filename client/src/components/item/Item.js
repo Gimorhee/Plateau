@@ -20,10 +20,10 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
           <img ClassName="Item-Image" src={item.image} alt="" />
           <div className="Item-Info">
             <h1 className="Item-Name">{item.name}</h1>
-            <h2 className="Item-Price">{item.price}</h2>
-            <h3 className="Item-Type">
+            <h2 className="Item-Price">${item.price}</h2>
+            <h2 className="Item-Type">
               {item.type[0].toUpperCase() + item.type.slice(1)}
-            </h3>
+            </h2>
             <h4>
               <h6>Description:</h6>
               <p> This is a mockup description. </p>
@@ -41,7 +41,7 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
                 Polyester 84%, Cotton 16%Lining: Polyester 100%Faux fur: Acrylic
                 43%, Modacrylic 42%, Polyester 15%
               </p>
-              <table className="Item-Table">
+              <table className="Item-Table table table-bordered">
                 <tr>
                   <th>Size(cm)</th>
                   <th>Shoulder</th>
@@ -58,18 +58,20 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
                 </tr>
                 {/* TO-DO: ADD CAROUSEL OF OTHER ITEMS (SAME TYPE) */}
               </table>
-              <select name="Item-Size">
-                <option value="default">Select your size</option>
-                <option value="x-small">XS</option>
-                <option value="small">S</option>
-                <option value="medium">M</option>
-                <option value="large">L</option>
-                <option value="x-large">XL</option>
-              </select>
-              <button>
-                <i className="fas fa-shopping-cart" />
-                ADD TO CART
-              </button>
+              <div className="Item-Choice">
+                <select name="Item-Size">
+                  <option value="default">Select your size</option>
+                  <option value="x-small">XS</option>
+                  <option value="small">S</option>
+                  <option value="medium">M</option>
+                  <option value="large">L</option>
+                  <option value="x-large">XL</option>
+                </select>
+                <button>
+                  <i className="fas fa-shopping-cart" />{" "}
+                  ADD TO CART
+                </button>
+              </div>
             </h4>
           </div>
         </div>
