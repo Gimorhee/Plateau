@@ -17,7 +17,7 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
     <Fragment>
       <div className="Item-Container">
         <div className="Item-Detail">
-          <img ClassName="Item-Image" src={item.image} alt="" />
+          <img id="Item-Image" src={item.image} alt="" />
           <div className="Item-Info">
             <h1 className="Item-Name">{item.name}</h1>
             <h2 className="Item-Price">${item.price}</h2>
@@ -67,7 +67,7 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
                   <option value="large">L</option>
                   <option value="x-large">XL</option>
                 </select>
-                <button>
+                <button className="Item-Button">
                   <i className="fas fa-shopping-cart" />{" "}
                   ADD TO CART
                 </button>
