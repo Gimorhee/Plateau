@@ -1,10 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Slider from "react-slick";
+import { Redirect } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Carousel = ({ items }) => {
+  const [data, setData] = useState({
+    Id: ""
+  });
+
+  const { Id } = data;
+
+  const onClick = e => {
+    const imageId = e.target.alt;
+  
+    setData({ ...data, Id: imageId });
+  }
+
   let settings = {
     dots: true,
     infinite: true,
@@ -43,12 +56,16 @@ const Carousel = ({ items }) => {
     ]
   };
 
+  if (Id) {
+    return <Redirect to={`/items/${Id}`} />
+  }
+
   return (
     <Fragment>
       <Slider {...settings}>
         {items.map(item => (
           <div key={item._id}>
-            <img className="Homepage-Image" src={item.image} alt="" />
+            <img className="Homepage-Image" src={item.image} alt={item._id} onClick={e => onClick(e)}/>
           </div>
         ))}
       </Slider>
