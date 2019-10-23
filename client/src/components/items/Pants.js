@@ -22,8 +22,17 @@ const Pants = ({ getTypeItems, items: { items, loading } }) => {
           <div key={item._id}>
             <img className="Items-Image" src={item.image} alt="" />
             <div className="Items-Info">
-              <h2 className="Items-Name">{item.name}</h2>
-              <p className="Items-Price">${item.price}</p>
+              <div className="Items-Spec">
+                <h2 className="Items-Name">{item.name}</h2>
+                <p className="Items-Price">${item.price}</p>
+              </div>
+              <button className="Items-Button">
+                <a className="Items-Link" href={`/items/${item._id}`}>Detail</a>
+              </button>
+              {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
+              <button className="Items-Button" href="/cart">
+                <a className="Items-Link" href="/cart">Add</a>
+              </button>
             </div>
           </div>
         ))}
