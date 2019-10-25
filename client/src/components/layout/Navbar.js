@@ -11,7 +11,6 @@ const Navibar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
     <Fragment>
       <a href="/register">Register</a>
       <a href="/login">Login</a>
-      <a href="/cart">My Cart</a>
     </Fragment>
   );
 
