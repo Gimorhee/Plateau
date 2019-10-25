@@ -11,7 +11,7 @@ const MyCart = require("../../models/MyCart");
 // @route   GET api/myCart
 // @desc    Get all myCart data
 // @access  Private
-router.get("/", async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
     let myCart = await MyCart.find().populate("user", ["firstName"]);
 

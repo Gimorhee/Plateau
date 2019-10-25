@@ -16,3 +16,7 @@ export const GET_ALL_ITEMS = "GET_ALL_ITEMS";
 export const ITEMS_ERROR = "ITEMS_ERROR";
 export const GET_TYPE_ITEMS = "GET_TYPE_ITEMS";
 export const GET_ITEM = "GET_ITEM";
+
+// My-Cart
+export const ADD_TO_MYCART = "ADD_TO_MYCART";
+export const MYCART_ERROR = "MYCART_ERROR";
