@@ -3,7 +3,7 @@ import { ADD_TO_MYCART, MYCART_ERROR } from "./types";
 import { setAlert } from "./alert";
 
 // Add a item to MyCart
-export const AddToCart = formData => async dispatch => {
+export const addToCart = formData => async dispatch => {
     try {
         const config = {
             headers: {
