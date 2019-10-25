@@ -33,7 +33,7 @@
     font-size: 30px;
     font-weight: 700;
     height: 65px;
-    width: 95px;
+    width: 75px;
     border: 2px solid #212529;
     border-radius: 20px;
     background: #f9f9f9;
@@ -71,3 +71,32 @@
 div {
     overflow: hidden;
 } 
+
+.Selection-Container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Selection-Quantity {
+    border: 2px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 33px;
+}
+
+.Selection-Size {
+    border: 2px solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 33px;
+    box-shadow: 0 4px #3c4245;
+}
+
+.Selection-Size:focus {
+    outline: 0;
+}
+
+.Selection-Quantity:focus {
+    outline: 0;
+}
+

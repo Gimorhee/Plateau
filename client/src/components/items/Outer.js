@@ -27,11 +27,31 @@ const Outer = ({ getTypeItems, items: { items, loading } }) => {
                 <p className="Items-Price">${item.price}</p>
               </div>
               <button className="Items-Button">
-                <a className="Items-Link" href={`/items/${item._id}`}>Detail</a>
+                <a className="Items-Link" href={`/items/${item._id}`}>
+                Info
+                </a>
               </button>
               {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
+              <div className="Selection-Container">
+                <select className="Selection-Quantity" name="quantity" id="">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <select className="Selection-Size" name="size" id="">
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                </select>
+              </div>
               <button className="Items-Button" href="/cart">
-                <a className="Items-Link" href="/cart">Add</a>
+                <a className="Items-Link" href="/cart">
+                  Add
+                </a>
               </button>
             </div>
           </div>

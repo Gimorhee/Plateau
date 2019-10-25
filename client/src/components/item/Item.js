@@ -59,7 +59,7 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
                 {/* TO-DO: ADD CAROUSEL OF OTHER ITEMS (SAME TYPE) */}
               </table>
               <div className="Item-Choice">
-                <select name="Item-Size">
+                <select className="Item-Size">
                   <option value="default">Select your size</option>
                   <option value="x-small">XS</option>
                   <option value="small">S</option>

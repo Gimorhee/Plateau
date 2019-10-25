@@ -67,7 +67,7 @@ tr {
     justify-content: space-evenly;
 }
 
-select {
+.Item-Size {
     width: 250px;
     font-size: 40px !important;
     color: #212529;
@@ -85,17 +85,17 @@ select {
     box-shadow: 0 6px #3c4245;
 }
 
-select:hover {
+.Item-Size:hover {
     box-shadow: 0 4px #3c4245;
     top: 2px;
 }
 
-select:active {
+.Item-Size:active {
     box-shadow: none;
     top: 6px;
 }
 
-select:focus {
+.Item-Size:focus {
     outline: 0;
 }
 
@@ -154,7 +154,7 @@ select:focus {
         margin: auto;
     }
 
-    select {
+    .Item-Size {
         width: 350px;
     }
 
