@@ -21,7 +21,7 @@ const Navibar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
         <i className="fas fa-sign-out-alt hide-icon"></i>
         <span className="hide-sm">Logout</span>
       </a>
-      <a href="/cart">
+      <a href={`/myCart/${user && user._id}`}>
         <i className="fas fa-shopping-cart hide-icon"></i>
         <span className="hide-sm">My Cart</span>
       </a>

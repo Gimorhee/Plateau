@@ -18,6 +18,8 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
     quantity: 1
   });
 
+  const { name, price, size, type, image, quantity } = cartData;
+
   const onMouseOver = e => {
     const data = e.target.name;
 
@@ -29,15 +31,32 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
     const type = newData[3];
 
     setCartData({ ...cartData, name, price, image, type });
-  }
+    console.log(name, price, image, type);
+  };
 
   const changeSize = e => {
     setCartData({ ...cartData, size: e.target.value });
-  }
+  };
 
   const changeQuantity = e => {
     setCartData({ ...cartData, quantity: Number(e.target.value) });
-  }
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const forData = {
+      name,
+      price,
+      size,
+      type,
+      image,
+      quantity
+    };
+
+    addToCart(forData);
+    console.log("TTTT");
+  };
 
   useEffect(() => {
     getTypeItems("outer");
@@ -59,19 +78,27 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
               </div>
               <button className="Items-Button">
                 <a className="Items-Link" href={`/items/${item._id}`}>
-                Info
+                  Info
                 </a>
               </button>
               {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
               <div className="Selection-Container">
-                <select className="Selection-Quantity" name="quantity" onChange={e => changeQuantity(e)} >
+                <select
+                  className="Selection-Quantity"
+                  name="quantity"
+                  onChange={e => changeQuantity(e)}
+                >
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select>
-                <select className="Selection-Size" name="size" onChange={e => changeSize(e)} >
+                <select
+                  className="Selection-Size"
+                  name="size"
+                  onChange={e => changeSize(e)}
+                >
                   <option value="XS">XS</option>
                   <option value="S">S</option>
                   <option value="M">M</option>
@@ -79,11 +106,11 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
                   <option value="XL">XL</option>
                 </select>
               </div>
-              <button className="Items-Button" href="/cart">
-                <a className="Items-Link" href="#!" name={`${item.name},${item.price},${item.image},${item.type}`} onMouseOver={e => onMouseOver(e)}>
+              <form onSubmit={e => onSubmit(e)}>
+                <button className="Items-Button" href="/cart" name={`${item.name},${item.price},${item.image},${item.type}`} onMouseOver={e => onMouseOver(e)} >
                   Add
-                </a>
-              </button>
+                </button>
+              </form>
             </div>
           </div>
         ))}
