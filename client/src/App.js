@@ -49,7 +49,7 @@ function App() {
             <Route exact path="/shoes" component={Shoes} />
             <Route exact path="/accessory" component={Accessory} />
             <Route exact path="/items/:id" component={Item} />
-            <PrivateRoute exact path="/myCart/:id" component={MyCart} />
+            <PrivateRoute exact path="/myCart/:userName" component={MyCart} />
           </Switch>
           <Footer />
         </Fragment>

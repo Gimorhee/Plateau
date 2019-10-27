@@ -20,3 +20,4 @@ export const GET_ITEM = "GET_ITEM";
 // My-Cart
 export const ADD_TO_MYCART = "ADD_TO_MYCART";
 export const MYCART_ERROR = "MYCART_ERROR";
+export const GET_MYCART_ITEMS = "GET_MYCART_ITEMS";

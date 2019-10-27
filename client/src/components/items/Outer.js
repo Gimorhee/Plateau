@@ -31,7 +31,6 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
     const type = newData[3];
 
     setCartData({ ...cartData, name, price, image, type });
-    console.log(name, price, image, type);
   };
 
   const changeSize = e => {
@@ -55,7 +54,6 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
     };
 
     addToCart(forData);
-    console.log("TTTT");
   };
 
   useEffect(() => {
