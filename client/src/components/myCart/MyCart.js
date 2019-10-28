@@ -4,20 +4,22 @@ import { connect } from "react-redux";
 import { getMyCartItems } from "../../actions/myCart";
 import Spinner from "../layout/Spinner";
 
-const MyCart = ({ myCart: {items, loading}, getMyCartItems }) => {
+const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
   useEffect(() => {
     getMyCartItems();
   }, []);
 
   return loading || items.items === null ? (
     <Spinner />
-  ) : (<Fragment>
+  ) : items.items ? (
+    <Fragment>
       {items.items.map(item => (
-          <div key={item._id}>
-              {item.name}
-          </div>
+        <div key={item._id}>{item.name}</div>
       ))}
-  </Fragment>)
+    </Fragment>
+  ) : (
+    <h1>No items in your Cart</h1>
+  );
 };
 
 MyCart.propTypes = {
