@@ -18,7 +18,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
       ))}
     </Fragment>
   ) : (
-    <h1>No items in your Cart</h1>
+    <p>No items in your Cart</p>
   );
 };
 
