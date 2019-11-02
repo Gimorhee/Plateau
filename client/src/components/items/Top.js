@@ -124,7 +124,8 @@ const Top = ({ getTypeItems, addToCart, items: { items, loading } }) => {
 
 Top.propTypes = {
   items: PropTypes.object.isRequired,
-  getTypeItems: PropTypes.func.isRequired
+  getTypeItems: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
