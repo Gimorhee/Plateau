@@ -75,10 +75,12 @@ const Pants = ({ getTypeItems, addToCart, items: { items, loading } }) => {
                 <p className="Items-Price">${item.price}</p>
               </div>
               <button className="Items-Button">
-                <a className="Items-Link" href={`/items/${item._id}`}>Info</a>
+                <a className="Items-Link" href={`/items/${item._id}`}>
+                  Info
+                </a>
               </button>
               {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
-  <div className="Selection-Container">
+              <div className="Selection-Container">
                 <select
                   className="Selection-Quantity"
                   name="quantity"
@@ -103,7 +105,12 @@ const Pants = ({ getTypeItems, addToCart, items: { items, loading } }) => {
                 </select>
               </div>
               <form onSubmit={e => onSubmit(e)}>
-                <button className="Items-Button" href="/cart" name={`${item.name},${item.price},${item.image},${item.type}`} onMouseOver={e => onMouseOver(e)} >
+                <button
+                  className="Items-Button"
+                  href="/cart"
+                  name={`${item.name},${item.price},${item.image},${item.type}`}
+                  onMouseOver={e => onMouseOver(e)}
+                >
                   Add
                 </button>
               </form>

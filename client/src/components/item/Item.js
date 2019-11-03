@@ -1,12 +1,60 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import { getItem } from "../../actions/items";
+import { addToCart } from "../../actions/myCart";
 
 import "../../css/item.css";
 
-const Item = ({ match, getItem, items: { loading, item } }) => {
+const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
+  const [cartData, setCartData] = useState({
+    name: "",
+    price: null,
+    size: null,
+    type: "",
+    image: "",
+    quantity: null
+  });
+
+  const { name, price, size, type, image, quantity } = cartData;
+
+  const onMouseOver = e => {
+    const data = e.target.name;
+
+    const newData = data.split(",");
+
+    const name = newData[0];
+    const price = Number(newData[1]);
+    const image = newData[2];
+    const type = newData[3];
+
+    setCartData({ ...cartData, name, price, image, type });
+  };
+
+  const changeSize = e => {
+    setCartData({ ...cartData, size: e.target.value });
+  };
+
+  const changeQuantity = e => {
+    setCartData({ ...cartData, quantity: Number(e.target.value) });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const formData = {
+      name,
+      price,
+      size,
+      type,
+      image,
+      quantity
+    };
+
+    addToCart(formData);
+  };
+
   useEffect(() => {
     getItem(match.params.id);
   }, []);
@@ -59,18 +107,31 @@ const Item = ({ match, getItem, items: { loading, item } }) => {
                 {/* TO-DO: ADD CAROUSEL OF OTHER ITEMS (SAME TYPE) */}
               </table>
               <div className="Item-Choice">
-                <select className="Item-Size">
+                <select className="Item-Size" onChange={e => changeSize(e)}>
                   <option value="default">Select your size</option>
-                  <option value="x-small">XS</option>
-                  <option value="small">S</option>
-                  <option value="medium">M</option>
-                  <option value="large">L</option>
-                  <option value="x-large">XL</option>
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
                 </select>
-                <button className="Item-Button">
-                  <i className="fas fa-shopping-cart" />{" "}
-                  ADD TO CART
-                </button>
+                <select className="Item-Size" onChange={e => changeQuantity(e)}>
+                  <option value="default">Select quantity</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <form onSubmit={e => onSubmit(e)}>
+                  <button
+                    className="Item-Button"
+                    name={`${item.name},${item.price},${item.image},${item.type}`}
+                    onMouseOver={e => onMouseOver(e)}
+                  >
+                    <i className="fas fa-shopping-cart" /> ADD TO CART
+                  </button>
+                </form>
               </div>
             </h4>
           </div>
@@ -91,5 +152,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getItem }
+  { getItem, addToCart }
 )(Item);

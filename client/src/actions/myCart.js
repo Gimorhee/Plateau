@@ -26,16 +26,16 @@ export const addToCart = formData => async dispatch => {
 
     if (errors) {
       errors.forEach(error => dispatch(setAlert(error.msg, "danger")));
+    } else {
+      dispatch(
+        setAlert("You must login first to add items in your Cart", "danger")
+      );
     }
 
     dispatch({
       type: MYCART_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
-
-    dispatch(
-      setAlert("You must login first to add items in your Cart", "danger")
-    );
   }
 };
 
