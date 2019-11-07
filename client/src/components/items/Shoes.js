@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getTypeItems } from "../../actions/items";
 import PropTypes from "prop-types";
+import Spinner from "../layout/Spinner";
 
 const Shoes = ({ getTypeItems }) => {
   useEffect(() => {
     getTypeItems("shoes");
   }, []);
 
-  return <div>Shoes</div>;
+  return <Spinner />;
 };
 
 Shoes.propTypes = {
