@@ -1,0 +1,44 @@
+.MyCart-Header {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 50px;
+    font-weight: 700 !important;
+}
+
+.MyCart-Container {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.Empty-Cart {
+    background: #f7f7f7;
+    border-radius: 25px;
+    width: 650px;
+    height: 200px;
+    text-align: center;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.Header {
+    font-weight: 700 !important;
+}
+
+.Small {
+    font-size: 20px;
+}
+
+.Back-Button {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.Back-Button:hover {
+    color: black;
+}
