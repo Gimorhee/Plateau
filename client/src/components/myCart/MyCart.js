@@ -19,9 +19,45 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
       <h1 className="MyCart-Header">SHOPPING BAG</h1>
       <div className="MyCart-Container">
         {items.items.length > 0 ? (
-          <div>
+          <div className="MyCart-Items">
             {items.items.map(item => (
-              <div key={item._id}>{item.name}</div>
+              <div className="MyCart-Item">
+                <div key={item._id}>
+                  <img className="MyCart-Image" src={item.image} />
+                </div>
+                <div>
+                  <div key={item._id}>
+                    <h3>
+                      <strong>{item.name}</strong>
+                    </h3>
+                  </div>
+                  <div key={item._id}>
+                    <h4>${item.price}</h4>
+                  </div>
+                  <div key={item._id}>
+                    <h4>Type: {item.type}</h4>
+                  </div>
+                  <div key={item._id}>
+                    <h4>Size: {item.size}</h4>
+                  </div>
+                  <div key={item._id}>
+                    <h4>Quantity: {item.quantity}</h4>
+                  </div>
+                  <div className="MyCart-Customize">
+                    <button className="MyCart-Like">
+                      <i className="fas fa-heart"></i>
+                    </button>
+                    <select name="Item-Quantity" className="MyCart-Customize">
+                      <option value="default">Quantity</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         ) : (
