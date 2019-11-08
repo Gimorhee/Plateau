@@ -29,7 +29,7 @@
     font-weight: 700 !important;
 }
 
-.Small {
+.Small-Font {
     font-size: 20px;
 }
 
@@ -41,4 +41,36 @@
 
 .Back-Button:hover {
     color: black;
+}
+
+
+/* CHECKOUT COMPONENT */
+.Checkout-Container {
+    padding: 5px 25px 25px 25px;
+    background: #f7f7f7;
+    border-radius: 25px;
+    width: 650px;
+    /* height: 200px; */
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.Checkout-Price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Checkout-Button {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background: #3c4245;
+    color: #f9f9f9;
+    font-size: 20px;
+}
+
+.Light-Color {
+    color: #5d5d5d;
 }

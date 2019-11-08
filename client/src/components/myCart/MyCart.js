@@ -27,7 +27,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
         ) : (
           <div className="Empty-Cart">
             <h2 className="Header">YOUR SHOPPING BAG IS EMPTY!</h2>
-            <p className="Small">
+            <p className="Small-Font">
               Checkout our new arrivals and add them in your shopping bag!
             </p>
             <a href="/" className="Back-Button">
