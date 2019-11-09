@@ -66,7 +66,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
         ) : (
           <EmptyCart />
         )}
-        <Checkout />
+        <Checkout items={items.items}/>
       </div>
     </Fragment>
   );
