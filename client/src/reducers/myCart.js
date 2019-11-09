@@ -1,7 +1,8 @@
 import {
   ADD_TO_MYCART,
   MYCART_ERROR,
-  GET_MYCART_ITEMS
+  GET_MYCART_ITEMS,
+  DELETE_ITEM
 } from "../actions/types";
 
 const initialState = {
@@ -32,6 +33,12 @@ export default function(state = initialState, action) {
         loading: false,
         errors: payload
       };
+    case DELETE_ITEM:
+      return {
+        ...state,
+        items: payload,
+        loading: false
+      }
     default:
       return state;
   }

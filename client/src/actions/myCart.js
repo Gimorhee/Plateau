@@ -1,5 +1,10 @@
 import axios from "axios";
-import { ADD_TO_MYCART, MYCART_ERROR, GET_MYCART_ITEMS } from "./types";
+import {
+  ADD_TO_MYCART,
+  MYCART_ERROR,
+  GET_MYCART_ITEMS,
+  DELETE_ITEM
+} from "./types";
 import { setAlert } from "./alert";
 
 // Add a item to MyCart
@@ -56,3 +61,21 @@ export const getMyCartItems = () => async dispatch => {
   }
 };
 
+// Delete a item in MyCart
+export const deleteItem = itemId => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/myCart/item/${itemId}`);
+
+    dispatch({
+      type: DELETE_ITEM,
+      payload: res.data
+    });
+
+    dispatch(setAlert("Item is successfully removed from your cart", "success"));
+  } catch (err) {
+    dispatch({
+      type: MYCART_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};

@@ -2,13 +2,14 @@ import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getMyCartItems } from "../../actions/myCart";
+import { deleteItem } from "../../actions/myCart";
 import Spinner from "../layout/Spinner";
 import Checkout from "./Checkout";
 import EmptyCart from "./EmptyCart";
 
 import "../../css/mycart.css";
 
-const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
+const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
   useEffect(() => {
     getMyCartItems();
   }, []);
@@ -24,22 +25,22 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
             <div className="MyCart-Items">
               {items.items.map(item => (
                 <div className="MyCart-Item">
-                  <div key={item._id}>
+                  <div>
                     <img className="MyCart-Image" src={item.image} />
                   </div>
                   <div className="MyCart-Item-Container">
-                    <div key={item._id}>
+                    <div>
                       <h3>
                         <strong>{item.name}</strong>
                       </h3>
                     </div>
-                    <div key={item._id}>
+                    <div>
                       <h4>${item.price}</h4>
                     </div>
-                    <div key={item._id}>
+                    <div>
                       <h4>Type: {item.type}</h4>
                     </div>
-                    <div key={item._id}>
+                    <div>
                       <h4>Size: {item.size}</h4>
                     </div>
                     <div className="MyCart-Customize">
@@ -55,6 +56,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
                       </select>
                     </div>
                   </div>
+                  <i className="fas fa-times" onClick={() => deleteItem(item._id)}></i>
                 </div>
               ))}
             </div>
@@ -72,7 +74,8 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems }) => {
 
 MyCart.propTypes = {
   myCart: PropTypes.object.isRequired,
-  getMyCartItems: PropTypes.func.isRequired
+  getMyCartItems: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -81,5 +84,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMyCartItems }
+  { getMyCartItems, deleteItem }
 )(MyCart);
