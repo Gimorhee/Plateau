@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const Payment = new Schema({
+const PaymentSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: "user"
@@ -28,4 +28,4 @@ const Payment = new Schema({
     }
 });
 
-module.exports = Payment = mongoose.model("payment", Payment);
+module.exports = Payment = mongoose.model("payment", PaymentSchema);
