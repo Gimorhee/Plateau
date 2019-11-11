@@ -58,7 +58,7 @@ const Pants = ({ getTypeItems, addToCart, items: { items, loading } }) => {
 
   useEffect(() => {
     getTypeItems("pants");
-  }, []);
+  }, [getTypeItems]);
 
   return loading || items === null ? (
     <Spinner />

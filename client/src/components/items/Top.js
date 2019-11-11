@@ -58,7 +58,7 @@ const Top = ({ getTypeItems, addToCart, items: { items, loading } }) => {
 
   useEffect(() => {
     getTypeItems("top");
-  }, []);
+  }, [getTypeItems]);
 
   return loading || items === null ? (
     <Spinner />

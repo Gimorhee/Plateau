@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import "../../css/mycart.css";
 
@@ -43,6 +42,5 @@ const Checkout = ({ items }) => {
   );
 };
 
-Checkout.propTypes = {};
 
 export default Checkout;

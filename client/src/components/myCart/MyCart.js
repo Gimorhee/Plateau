@@ -12,7 +12,7 @@ import "../../css/mycart.css";
 const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
   useEffect(() => {
     getMyCartItems();
-  }, []);
+  }, [getMyCartItems]);
 
   return loading || items.items === null ? (
     <Spinner />
@@ -26,7 +26,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
               {items.items.map(item => (
                 <div className="MyCart-Item">
                   <div>
-                    <img className="MyCart-Image" src={item.image} />
+                    <img className="MyCart-Image" src={item.image} alt="" />
                   </div>
                   <div className="MyCart-Item-Container">
                     <div>

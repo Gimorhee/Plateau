@@ -57,7 +57,7 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
 
   useEffect(() => {
     getItem(match.params.id);
-  }, []);
+  }, [getItem, match.params.id]);
 
   return loading || item === null ? (
     <Spinner />

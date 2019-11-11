@@ -11,7 +11,7 @@ import "../../css/homepage.css";
 const Homepage = ({ getItems, items: { items, loading } }) => {
   useEffect(() => {
     getItems();
-  }, []);
+  }, [getItems]);
 
   return loading || items === null ? (
     <Spinner />

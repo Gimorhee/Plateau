@@ -58,7 +58,7 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
 
   useEffect(() => {
     getTypeItems("outer");
-  }, []);
+  }, [getTypeItems]);
 
   return loading || items === null ? (
     <Spinner />

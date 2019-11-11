@@ -7,7 +7,7 @@ import Spinner from "../layout/Spinner";
 const Shoes = ({ getTypeItems }) => {
   useEffect(() => {
     getTypeItems("shoes");
-  }, []);
+  }, [getTypeItems]);
 
   return <Spinner />;
 };
