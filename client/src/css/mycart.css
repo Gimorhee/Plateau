@@ -37,6 +37,10 @@
     justify-content: space-between;
 }
 
+.MyCart-Info {
+    display: flex;
+}
+
 .MyCart-Image {
     width: 350px;
     border-radius: 25px;
