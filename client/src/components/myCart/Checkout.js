@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 
 import "../../css/mycart.css";
 
-const Checkout = ({ items, user }) => {
+const Checkout = ({ items, user, setAlert }) => {
   const [status, setStatus] = useState({
     checkout: false
   });
@@ -19,9 +19,11 @@ const Checkout = ({ items, user }) => {
     setStatus({ ...status, checkout: true });
   };
 
-  if(checkout) {
+  if(checkout && totalPrice !== 0) {
     return <Redirect to={`/payment/${user && user.firstName}`} />
-  } 
+  } else if(checkout && totalPrice === 0) {
+    setAlert("You shopping bag is empty!", "danger");
+  }
 
   return (
     <Fragment>
