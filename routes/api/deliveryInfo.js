@@ -8,12 +8,12 @@ const config = require("config");
 const User = require("../../models/User");
 const DevliveryInfo = require("../../models/DeliveryInfo");
 
-// @route   GET api/delivery
-// @desc    Get all delivery info
+// @route   GET api/delivery/me
+// @desc    Get customer's delivery info by Id
 // @access  Private
-router.get("/", auth, async (req, res) => {
+router.get("/me", auth, async (req, res) => {
   try {
-    let deliveryInfo = await DeliveryInfo.find();
+    let deliveryInfo = await DeliveryInfo.findOne({ user: req.user.id });
 
     if (deliveryInfo.length === 0) {
       return res
