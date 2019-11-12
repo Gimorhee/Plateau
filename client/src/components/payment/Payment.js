@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { getDeliveryInfo } from "../../actions/delivery";
 
 import CustomerInfo from "./CustomerInfo";
 import DeliveryInfo from "./DeliveryInfo";
@@ -9,7 +10,11 @@ import OrderInfo from "./OrderInfo";
 
 import "../../css/payment.css";
 
-const Payment = ({ auth: { user }}) => {
+const Payment = ({ auth: { user }, getDeliveryInfo }) => {
+  useEffect(() => {
+    getDeliveryInfo();
+  }, []);
+
   return (
     <Fragment>
       <div className="Payment-Container">
@@ -28,11 +33,12 @@ const Payment = ({ auth: { user }}) => {
 };
 
 Payment.propTypes = {
-    auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  getDeliveryInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-    auth: state.auth
-})
+  auth: state.auth
+});
 
-export default connect(mapStateToProps)(Payment);
+export default connect(mapStateToProps, { getDeliveryInfo })(Payment);
