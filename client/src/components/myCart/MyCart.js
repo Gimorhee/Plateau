@@ -10,7 +10,7 @@ import MyCartItem from "./MyCartItem";
 
 import "../../css/mycart.css";
 
-const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
+const MyCart = ({ myCart: { items, loading }, auth: { user }, getMyCartItems, deleteItem }) => {
   useEffect(() => {
     getMyCartItems();
   }, [getMyCartItems]);
@@ -34,7 +34,7 @@ const MyCart = ({ myCart: { items, loading }, getMyCartItems, deleteItem }) => {
         ) : (
           <EmptyCart />
         )}
-        <Checkout items={items.items}/>
+        <Checkout items={items.items} user={user} />
       </div>
     </Fragment>
   );
@@ -47,7 +47,8 @@ MyCart.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  myCart: state.myCart
+  myCart: state.myCart,
+  auth: state.auth
 });
 
 export default connect(

@@ -82,6 +82,9 @@ router.post(
   }
 );
 
+// @route   PUT api/delivery/edit
+// @desc    Edit delivery information
+// @access  Private
 router.put(
   "/edit",
   [
