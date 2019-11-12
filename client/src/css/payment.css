@@ -7,7 +7,7 @@
 .Customer-Container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    
 }
 
 /* CUSTOMER-INFO  */
@@ -21,4 +21,14 @@
 
 .Info-Header {
     font-size: 35px;
+}
+
+/* ORDER SECTION */
+.Order-Container {
+    padding: 25px 25px 25px 25px;
+    background: #f7f7f7;
+    border-radius: 25px;
+    width: 750px;
+    height: 750px;
+    padding-right: 50px;
 }

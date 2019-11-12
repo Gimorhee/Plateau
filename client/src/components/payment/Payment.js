@@ -10,17 +10,17 @@ import OrderInfo from "./OrderInfo";
 
 import "../../css/payment.css";
 
-const Payment = ({ auth: { user }, getDeliveryInfo }) => {
+const Payment = ({ auth: { user }, getDeliveryInfo, delivery }) => {
   useEffect(() => {
     getDeliveryInfo();
-  }, []);
+  }, [getDeliveryInfo]);
 
   return (
     <Fragment>
       <div className="Payment-Container">
         <div className="Customer-Container">
           <CustomerInfo user={user} />
-          <DeliveryInfo />
+          <DeliveryInfo delivery={delivery} />
           <PaymentInfo />
         </div>
 
@@ -38,7 +38,8 @@ Payment.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  delivery: state.delivery
 });
 
 export default connect(mapStateToProps, { getDeliveryInfo })(Payment);

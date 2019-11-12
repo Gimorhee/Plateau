@@ -1,9 +1,11 @@
 import React from 'react';
 
-const DeliveryInfo = props => {
+const DeliveryInfo = ({ delivery }) => {
+
+    console.log("1", delivery);
     return (
         <div>
-            Delivery Info
+            <p>{delivery.info === null ? "No delivery info" : "Yes delivery info"}</p>
         </div>
     )
 }
