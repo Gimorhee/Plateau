@@ -26,6 +26,7 @@ const MyCart = ({
     <Spinner />
   ) : (
     <Fragment>
+      {/* TO-DO: when quantity is changed, change the total price */}
       <h1 className="MyCart-Header">SHOPPING BAG</h1>
       <div className="MyCart-Container">
         {items.items ? (

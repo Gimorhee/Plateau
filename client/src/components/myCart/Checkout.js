@@ -11,7 +11,7 @@ const Checkout = ({ items, user, setAlert }) => {
   const { checkout } = status;
 
   let totalPrice = 0;
-  items.map(item => (totalPrice += item.price));
+  items.map(item => (totalPrice += (item.price * item.quantity)));
 
   const deliveryFee = totalPrice >= 100 ? 0 : 7.99;
 

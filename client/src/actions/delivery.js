@@ -3,7 +3,7 @@ import {
     GET_DELIVERY_INFO,
     DELIVERY_ERROR
 } from "./types";
-import { setAlert } from "./alert";
+// import { setAlert } from "./alert";
 
 // Get a customer delivery info
 export const getDeliveryInfo = () => async dispatch => {
