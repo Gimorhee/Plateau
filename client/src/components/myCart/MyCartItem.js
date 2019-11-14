@@ -2,20 +2,23 @@ import React, { useState } from "react";
 
 const MyCartItem = ({ item, deleteItem, changeItemQuantity, user }) => {
   const [data, setData] = useState({
-    quantity: 1
+    quantity: "",
+    defaultQuantity: ""
   });
 
-  const { quantity } = data;
+  const { quantity, defaultQuantity } = data;
 
   const onChange = e => {
-    setData({ [e.target.name]: e.target.value });
+    setData({ ...data, [e.target.name]: e.target.value });
+  }
 
+  if(quantity !== defaultQuantity) {
     const itemId = item._id;
     
     changeItemQuantity({ itemId, quantity})
-
+    .then(setData({ quantity: "", defaultQuantity: ""}));
   }
-
+    
   return (
     <div className="MyCart-Item">
       <div className="MyCart-Info">

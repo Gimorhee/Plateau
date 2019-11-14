@@ -93,9 +93,6 @@ export const changeItemQuantity = ({ itemId, quantity })=> async dispatch => {
     quantity
   }
 
-  console.log("!!!!!", itemId)
-  console.log("!????", quantity)
-
   const body = JSON.stringify(editData);
 
   try {
