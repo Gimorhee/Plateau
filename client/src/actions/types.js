@@ -22,6 +22,7 @@ export const ADD_TO_MYCART = "ADD_TO_MYCART";
 export const MYCART_ERROR = "MYCART_ERROR";
 export const GET_MYCART_ITEMS = "GET_MYCART_ITEMS";
 export const DELETE_ITEM = "DELETE_ITEM";
+export const CHANGE_ITEM_QUANTITY = "CHANGE_ITEM_QUANTITY";
 
 // Deliver
 export const GET_DELIVERY_INFO = "GET_DELIVERY_INFO";

@@ -136,4 +136,39 @@ router.delete("/item/:itemId", auth, async (req, res) => {
   }
 });
 
+// @route   PUT api/myCart/item/:itemId
+// @desc    Edit MyCart Item Quantity
+// @access  Private
+router.put("/item/:itemId", [
+  auth,
+  check("quantity", "Quantity is required")
+  .not()
+  .isEmpty()
+], async (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  try {
+    let myCart = await MyCart.findOne({ user: req.user.id });
+
+    const { quantity } = req.body;
+
+    const editIndex = myCart.items
+    .map(item => item.id)
+    .indexOf(req.params.itemId);
+
+    myCart.items[editIndex].quantity = quantity;
+
+    await myCart.save();
+
+    res.json(myCart);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 module.exports = router;

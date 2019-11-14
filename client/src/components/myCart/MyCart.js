@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getMyCartItems } from "../../actions/myCart";
 import { deleteItem } from "../../actions/myCart";
+import { changeItemQuantity } from "../../actions/myCart";
 import { setAlert } from "../../actions/alert";
 import Spinner from "../layout/Spinner";
 import Checkout from "./Checkout";
@@ -16,6 +17,7 @@ const MyCart = ({
   auth: { user },
   getMyCartItems,
   deleteItem,
+  changeItemQuantity,
   setAlert
 }) => {
   useEffect(() => {
@@ -33,7 +35,7 @@ const MyCart = ({
           items.items.length > 0 ? (
             <div className="MyCart-Items">
               {items.items.map(item => (
-                <MyCartItem item={item} deleteItem={deleteItem} />
+                <MyCartItem item={item} deleteItem={deleteItem} changeItemQuantity={changeItemQuantity} user={user}/>
               ))}
             </div>
           ) : (
@@ -51,7 +53,8 @@ const MyCart = ({
 MyCart.propTypes = {
   myCart: PropTypes.object.isRequired,
   getMyCartItems: PropTypes.func.isRequired,
-  deleteItem: PropTypes.func.isRequired
+  deleteItem: PropTypes.func.isRequired,
+  changeItemQuantity: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -62,5 +65,6 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   getMyCartItems,
   deleteItem,
+  changeItemQuantity,
   setAlert
 })(MyCart);

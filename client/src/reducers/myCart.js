@@ -2,7 +2,8 @@ import {
   ADD_TO_MYCART,
   MYCART_ERROR,
   GET_MYCART_ITEMS,
-  DELETE_ITEM
+  DELETE_ITEM,
+  CHANGE_ITEM_QUANTITY
 } from "../actions/types";
 
 const initialState = {
@@ -34,6 +35,7 @@ export default function(state = initialState, action) {
         errors: payload
       };
     case DELETE_ITEM:
+    case CHANGE_ITEM_QUANTITY:
       return {
         ...state,
         items: payload,

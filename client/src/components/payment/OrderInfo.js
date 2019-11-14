@@ -18,8 +18,6 @@ const OrderInfo = ({ items }) => {
     Number(priceAfterPST)
   ).toFixed(2);
 
-  console.log(discountedPrice);
-
   return (
     <Fragment>
       <div className="Order-Container">
@@ -60,7 +58,6 @@ const OrderInfo = ({ items }) => {
           30 days withdrawal. Read more about return and refund.
         </p>
         <br />
-        <br />
         <div className="Shipping-Option">
           <p className="Small-Font">
             <strong>SHIPPING OPTIONS:</strong>
@@ -69,6 +66,9 @@ const OrderInfo = ({ items }) => {
           <p className="Small-Font">Free online return</p>
           <p className="Small-Font">
             Free Standard shipping over $100 / 3-6 business days.
+          </p>
+          <p className="Small-Font">
+            Purchase over $200 and get 10% Discount!
           </p>
         </div>
       </div>

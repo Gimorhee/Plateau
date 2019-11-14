@@ -3,7 +3,8 @@ import {
   ADD_TO_MYCART,
   MYCART_ERROR,
   GET_MYCART_ITEMS,
-  DELETE_ITEM
+  DELETE_ITEM,
+  CHANGE_ITEM_QUANTITY
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -79,3 +80,37 @@ export const deleteItem = itemId => async dispatch => {
     });
   }
 };
+
+// Change quantity of a item in MyCart
+export const changeItemQuantity = ({ itemId, quantity })=> async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+
+  const editData = {
+    quantity
+  }
+
+  console.log("!!!!!", itemId)
+  console.log("!????", quantity)
+
+  const body = JSON.stringify(editData);
+
+  try {
+    const res = await axios.put(`/api/myCart/item/${itemId}`, body, config);
+
+    dispatch({
+      type: CHANGE_ITEM_QUANTITY,
+      payload: res.data
+    });
+
+    dispatch(setAlert("Item quantity is successfully changed for the item", "success"));
+  } catch (err) {
+    dispatch({
+      type: MYCART_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+}
