@@ -27,7 +27,6 @@ const Payment = ({
   return loading || items.items === null ? (
     <Spinner />
   ) : (
-    // TO-DO: Make the page responsive
     <Fragment>
       <div className="Payment-Container">
         <div className="Customer-Container">

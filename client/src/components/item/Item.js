@@ -104,7 +104,6 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
                   <td>60</td>
                   <td>75</td>
                 </tr>
-                {/* TO-DO: ADD CAROUSEL OF OTHER ITEMS (SAME TYPE) */}
               </table>
               <div className="Item-Choice">
                 <select className="Item-Size" onChange={e => changeSize(e)}>
