@@ -8,39 +8,37 @@ Plateau is an e-ccommerce, fully-responsive and full-stack application build wit
 - Plateau is still in development process
 
 ## QUICK START
-- Create default.json file in config folder
-- This file must be located in config/default.json
-- Add jwtSecret and URI of your mongodb connection (either in your local machine or from mongo atlas). For example:
 ```
-"mongoURI": "mongodb://localhost/test",
-"jwtSecret": "twt-token-secret"
+# Create default.json file in config folder
+# This file must be located in config/default.json
+# Add jwtSecret and URI of your mongodb connection (either in your local machine or from mongo atlas). For example:
+
+{
+    "mongoURI": "mongodb://localhost/test",
+    "jwtSecret": "twt-token-secret"
+}
+```
+
 
 ```
-
-- Install Server Dependencies
-```
+# Install Server Dependencies
 npm install
-```
 
-- Install Client Dependencies
-```
+# Install Client Dependencies
 cd client
 npm install
-```
 
-- Run both Express & React from root
-```
+# Run both Express & React from root
 npm run dev
-```
 
-- Build for production
-```
+# Build for production
 cd client
 npm run build
 ```
 
-# APP INFO
-## Author
+
+## APP INFO
+### Author
 Danny Rhee
-## Version
+### Version
 1.0.0
