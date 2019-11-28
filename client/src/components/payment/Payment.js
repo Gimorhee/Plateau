@@ -31,7 +31,7 @@ const Payment = ({
       <div className="Payment-Container">
         <div className="Customer-Container">
           <CustomerInfo user={user} />
-          <DeliveryInfo delivery={delivery} />
+          <DeliveryInfo delivery={delivery} user={user}/>
           <PaymentInfo />
         </div>
 

@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Fragment } from "react";
+import WithDeliveryInfo from "./WithDeliveryInfoForm";
+import WithNoDeliveryInfo from "./WithNoDeliveryInfoForm";
 
-const DeliveryInfo = ({ delivery }) => {
+const DeliveryInfo = ({ delivery: { info }, user }) => {
+  return (
+    <Fragment>
+      <div>
+        <h3>DELIVERY</h3>
+        {info === null ? (
+            <WithNoDeliveryInfo />
+        ) : (
+            <WithDeliveryInfo user={user} info={info} />
+        )}
+      </div>
+    </Fragment>
+  );
+};
 
-    console.log("1", delivery);
-    return (
-        <div>
-            <p>{delivery.info === null ? "No delivery info" : "Yes delivery info"}</p>
-        </div>
-    )
-}
-
-export default DeliveryInfo
+export default DeliveryInfo;
