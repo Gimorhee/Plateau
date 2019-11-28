@@ -1,6 +1,6 @@
 # PLATEAU 1.0.0
 
-Plateau is an e-ccommerce, fully-responsive and full-stack application build with MERN (Mongo, Express, React/Redux, Node.js) stacks for purpose of:
+Plateau is an e-ccommerce, fully-responsive and full-stack application built with MERN (Mongo, Express, React/Redux, Node.js) stacks for purpose of:
 - Learning React/Reduct from Front to Back
 - Writing efficient and re-usable back-end APIs using Node.js and Express
 - Making API calls to access data from the database to the client-side page using Axios
