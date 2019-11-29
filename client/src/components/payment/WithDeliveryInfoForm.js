@@ -11,13 +11,13 @@ const WithDeliveryInfoForm = ({ user, info }) => {
         <strong>Shipping Address</strong>
       </h5>
       <h5>
-        {user.firstName}, {info.address}, {info.city}, {info.zip}
+        {user.firstName}, {info.address}, {info.city}, {info.province}, {info.zip}
       </h5>
       <h5>
         <strong>Phone Number for delivery updates</strong>
       </h5>
       <h5>+1 {info.phone}</h5>
-      <button>EDIT</button>
+      <button className="Delivery-Button">EDIT</button>
     </div>
   );
 };

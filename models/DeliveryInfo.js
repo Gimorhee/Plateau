@@ -14,6 +14,10 @@ const DeliveryInfoSchema = new Schema({
         type: String,
         required: true
     },
+    province: {
+        type: String,
+        required: true
+    },
     zip: {
         type: String,
         required: true

@@ -38,6 +38,9 @@ router.post(
     check("address", "Address is required")
       .not()
       .isEmpty(),
+    check("province", "Province is required")
+      .not()
+      .isEmpty(),
     check("city", "City is required")
       .not()
       .isEmpty(),
@@ -55,25 +58,25 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { address, city, zip, phone } = req.body;
+    const { address, province, city, zip, phone } = req.body;
 
     try {
       let deliveryInfo = await DeliveryInfo.findOne({ user: req.user.id });
 
       if (deliveryInfo) {
-        return res.status(400).send("Deliver Info already entered");
+        return res.status(400).send("Delivery Info already entered");
       }
 
       const newDeliveryInfo = await new DeliveryInfo({
         user: req.user.id,
         address,
+        province,
         city,
         zip,
         phone
       });
 
       const delivery = await newDeliveryInfo.save();
-
       res.json(delivery);
     } catch (err) {
       console.error(err.message);
