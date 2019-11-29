@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addOrUpdateDeliveryInfo } from "../../actions/delivery";
 
-const WithNoDeliveryInfoForm = ({}) => {
+const WithNoDeliveryInfoForm = ({ addOrUpdateDeliveryInfo, delivery: { info } }) => {
   const [deliveryInfo, setDeliveryInfo] = useState({
     address: null,
     city: null,
@@ -8,6 +11,20 @@ const WithNoDeliveryInfoForm = ({}) => {
     zip: null,
     phone: null
   });
+
+  const { address, city, province, zip, phone } = deliveryInfo;
+
+  const formData = {
+    address,
+    city,
+    province,
+    zip,
+    phone
+  };
+
+  const onClick = () => {
+    addOrUpdateDeliveryInfo(formData);
+  };
 
   const onChange = e => {
     setDeliveryInfo({ ...deliveryInfo, [e.target.name]: e.target.value });
@@ -18,6 +35,7 @@ const WithNoDeliveryInfoForm = ({}) => {
   };
 
   return (
+    // TO-DO: Display existing delivery info
     <div className="withNoDeliveryInfo">
       <form className="DeliveryInfo-Form">
         <div className="col-md-10">
@@ -25,7 +43,7 @@ const WithNoDeliveryInfoForm = ({}) => {
             type="text"
             name="address"
             className="form-control"
-            placeholder="Address:  #13 1234 18st"
+            placeholder="Address: #13 1234 18st"
             onChange={e => onChange(e)}
           />
         </div>
@@ -66,9 +84,22 @@ const WithNoDeliveryInfoForm = ({}) => {
           />
         </div>
       </form>
-      <button className="Delivery-Button">ADD DELIVERY INFO</button>
+      <button className="Delivery-Button" onClick={() => onClick()}>
+        ADD/UPDATE DELIVERY INFO
+      </button>
     </div>
   );
 };
 
-export default WithNoDeliveryInfoForm;
+WithNoDeliveryInfoForm.propTypes = {
+  addOrUpdateDeliveryInfo: PropTypes.func.isRequired,
+  deliver: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  delivery: state.delivery
+})
+
+export default connect(mapStateToProps, { addOrUpdateDeliveryInfo })(
+  WithNoDeliveryInfoForm
+);

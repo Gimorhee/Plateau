@@ -10,7 +10,7 @@ const DeliveryInfo = ({ delivery: { info }, user }) => {
       <div className="Delivery-Container">
         <h3 className="Delivery-Header">DELIVERY INFORMATION</h3>
         {info === null ? (
-            <WithNoDeliveryInfo />
+            <WithNoDeliveryInfo info={info} />
         ) : (
             <WithDeliveryInfo user={user} info={info} />
         )}
