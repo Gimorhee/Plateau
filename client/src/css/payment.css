@@ -39,7 +39,7 @@
     background: #f7f7f7;
     border-radius: 25px;
     width: 750px;
-    height: 350px;
+    height: 450px;
     padding: 20px;
 }
 
@@ -55,4 +55,10 @@
     background: #3c4245;
     color: #f9f9f9;
     font-size: 20px;
+}
+
+.DeliveryInfo-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

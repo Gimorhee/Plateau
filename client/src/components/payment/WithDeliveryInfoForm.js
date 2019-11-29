@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import WithNoDeliveryInfoForm from "./WithNoDeliveryInfoForm";
 
 const WithDeliveryInfoForm = ({ user, info }) => {
+  const [ editState, setEditState ] = useState(false);
+
+  const changeEditState = () => {
+    setEditState(!editState);
+  }
+
   return (
-    <div className="withDeliveryInfo">
+    editState === false ? (
+      <div className="WithDeliveryInfo">
       <h5>
         <strong>Delivery Type</strong>
       </h5>
@@ -17,8 +25,11 @@ const WithDeliveryInfoForm = ({ user, info }) => {
         <strong>Phone Number for delivery updates</strong>
       </h5>
       <h5>+1 {info.phone}</h5>
-      <button className="Delivery-Button">EDIT</button>
+      <button className="Delivery-Button" onClick={()=> changeEditState()}>EDIT</button>
     </div>
+    ) : (
+      < WithNoDeliveryInfoForm />
+    )
   );
 };
 

@@ -8,7 +8,7 @@ const DeliveryInfo = ({ delivery: { info }, user }) => {
   return (
     <Fragment>
       <div className="Delivery-Container">
-        <h3 className="Delivery-Header">DELIVERY</h3>
+        <h3 className="Delivery-Header">DELIVERY INFORMATION</h3>
         {info === null ? (
             <WithNoDeliveryInfo />
         ) : (

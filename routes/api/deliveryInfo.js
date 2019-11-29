@@ -95,6 +95,9 @@ router.put(
     check("address", "Address is required")
       .not()
       .isEmpty(),
+    check("province", "Province is required")
+      .not()
+      .isEmpty(),
     check("city", "City is required")
       .not()
       .isEmpty(),
@@ -112,10 +115,11 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { address, city, zip, phone } = req.body;
+    const { address, province, city, zip, phone } = req.body;
 
     const newDeliveryInfo = {
       address,
+      province,
       city,
       zip,
       phone
