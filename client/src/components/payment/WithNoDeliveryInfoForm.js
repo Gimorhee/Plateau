@@ -66,7 +66,7 @@ const WithNoDeliveryInfoForm = ({}) => {
           />
         </div>
       </form>
-      <button className="Delivery-Button">CONTINUE TO PAYMENT</button>
+      <button className="Delivery-Button">ADD DELIVERY INFO</button>
     </div>
   );
 };

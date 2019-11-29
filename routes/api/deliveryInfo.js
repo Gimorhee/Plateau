@@ -29,7 +29,7 @@ router.get("/me", auth, async (req, res) => {
 });
 
 // @route   POST api/delivery/add
-// @desc    Add delivery information
+// @desc    Add or Update delivery information
 // @access  Private
 router.post(
   "/add",
@@ -63,8 +63,22 @@ router.post(
     try {
       let deliveryInfo = await DeliveryInfo.findOne({ user: req.user.id });
 
+      let infoFields = {
+        address,
+        province,
+        city,
+        zip,
+        phone
+      };
+
       if (deliveryInfo) {
-        return res.status(400).send("Delivery Info already entered");
+        deliveryInfo = await DevliveryInfo.findOneAndUpdate(
+          { user: req.user.id },
+          { $set: infoFields },
+          { new: true }
+        )
+
+        return res.json(deliveryInfo);
       }
 
       const newDeliveryInfo = await new DeliveryInfo({
@@ -88,58 +102,58 @@ router.post(
 // @route   PUT api/delivery/edit
 // @desc    Edit delivery information
 // @access  Private
-router.put(
-  "/edit",
-  [
-    auth,
-    check("address", "Address is required")
-      .not()
-      .isEmpty(),
-    check("province", "Province is required")
-      .not()
-      .isEmpty(),
-    check("city", "City is required")
-      .not()
-      .isEmpty(),
-    check("zip", "ZIP is required")
-      .not()
-      .isEmpty(),
-    check("phone", "Phone number is required")
-      .not()
-      .isEmpty()
-  ],
-  async (req, res) => {
-    const errors = validationResult(req);
+// router.put(
+//   "/edit",
+//   [
+//     auth,
+//     check("address", "Address is required")
+//       .not()
+//       .isEmpty(),
+//     check("province", "Province is required")
+//       .not()
+//       .isEmpty(),
+//     check("city", "City is required")
+//       .not()
+//       .isEmpty(),
+//     check("zip", "ZIP is required")
+//       .not()
+//       .isEmpty(),
+//     check("phone", "Phone number is required")
+//       .not()
+//       .isEmpty()
+//   ],
+//   async (req, res) => {
+//     const errors = validationResult(req);
 
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+//     if (!errors.isEmpty()) {
+//       return res.status(400).json({ errors: errors.array() });
+//     }
 
-    const { address, province, city, zip, phone } = req.body;
+//     const { address, province, city, zip, phone } = req.body;
 
-    const newDeliveryInfo = {
-      address,
-      province,
-      city,
-      zip,
-      phone
-    };
+//     const newDeliveryInfo = {
+//       address,
+//       province,
+//       city,
+//       zip,
+//       phone
+//     };
 
-    try {
-      let deliveryInfo = await DeliveryInfo.findOne({ user: req.user.id });
+//     try {
+//       let deliveryInfo = await DeliveryInfo.findOne({ user: req.user.id });
 
-      deliveryInfo = await DeliveryInfo.findOneAndUpdate(
-        { user: req.user.id },
-        { $set: newDeliveryInfo },
-        { new: true }
-      );
+//       deliveryInfo = await DeliveryInfo.findOneAndUpdate(
+//         { user: req.user.id },
+//         { $set: newDeliveryInfo },
+//         { new: true }
+//       );
 
-      return res.json(deliveryInfo);
-    } catch (err) {
-      console.error(err.message);
-      res.status(500).send("Server error");
-    }
-  }
-);
+//       return res.json(deliveryInfo);
+//     } catch (err) {
+//       console.error(err.message);
+//       res.status(500).send("Server error");
+//     }
+//   }
+// );
 
 module.exports = router;
