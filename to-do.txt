@@ -4,7 +4,9 @@ IN-PROGRESS:
     - Basic forms - DONE
         - Need to work on design/css DONE
         - Need to work on Create/Edit (Action/Reducer) DONE
-        - * DISPLAY * existing delivery info in the edit form (when user is trying to edit delivery info)
+        - Display existing delivery info in the edit form (when user is trying to edit delivery info) - DONE
+    - * Need to make the page responsive *
+
 TO-DOs: 
 - CREDIT CARD PAYMENT METHOD (RESEARCH FOR OTHER API)
 - EMAIL / SMS FEATURE WHEN THE ORDER IS PLACED (RESEARCH)

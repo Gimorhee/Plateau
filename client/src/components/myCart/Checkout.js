@@ -11,9 +11,14 @@ const Checkout = ({ items, user, setAlert }) => {
   const { checkout } = status;
 
   let totalPrice = 0;
-  items.map(item => (totalPrice += (item.price * item.quantity)));
 
-  const deliveryFee = totalPrice >= 100 ? 0 : 7.99;
+  items !== undefined && (
+    items.map(item => (totalPrice += (item.price * item.quantity)))
+  )
+
+  const deliveryFee = items !== undefined ? (
+    totalPrice >= 100 ? 0 : 7.99
+  ) : 0
 
   const onClick = () => {
     setStatus({ ...status, checkout: true });
