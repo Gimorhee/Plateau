@@ -6,7 +6,7 @@ const request = require("request");
 const config = require("config");
 
 const User = require("../../models/User");
-const DevliveryInfo = require("../../models/DeliveryInfo");
+const DeliveryInfo = require("../../models/DeliveryInfo");
 
 // @route   GET api/delivery/me
 // @desc    Get customer's delivery info by Id
@@ -72,7 +72,7 @@ router.post(
       };
 
       if (deliveryInfo) {
-        deliveryInfo = await DevliveryInfo.findOneAndUpdate(
+        deliveryInfo = await DeliveryInfo.findOneAndUpdate(
           { user: req.user.id },
           { $set: infoFields },
           { new: true }

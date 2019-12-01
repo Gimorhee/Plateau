@@ -15,7 +15,7 @@ const PaymentSchema = new Schema({
         required: true
     },
     expmonth: {
-        type: Number,
+        type: String,
         required: true
     },
     expyear: {
