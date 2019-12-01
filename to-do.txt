@@ -1,11 +1,4 @@
 IN-PROGRESS:
-- USERS SHOULD BE ABLE TO ADD / EDIT DELIVERY INFO
-    - BACK-END APIs - DONE
-    - Basic forms - DONE
-        - Need to work on design/css DONE
-        - Need to work on Create/Edit (Action/Reducer) DONE
-        - Display existing delivery info in the edit form (when user is trying to edit delivery info) - DONE
-    - * Need to make the page responsive *
 
 TO-DOs: 
 - CREDIT CARD PAYMENT METHOD (RESEARCH FOR OTHER API)
@@ -46,5 +39,10 @@ DONE:
 - IF ORDER VALUE IS OVER $200, USERS GET 10% DISCOUNT - DONE
 - IF ORDER VALUE IS OVER $100 ? FREE DELIVERY : $7.99 - DONE
 - APPLY GST/HST/PST FOR THE TOTAL PRICE - DONE
-
+- USERS SHOULD BE ABLE TO ADD / EDIT DELIVERY INFO
+    - BACK-END APIs - DONE
+    - Basic forms - DONE
+        - Need to work on design/css DONE
+        - Need to work on Create/Edit (Action/Reducer) DONE
+        - Display existing delivery info in the edit form (when user is trying to edit delivery info) - DONE
 
