@@ -1,9 +1,9 @@
 IN-PROGRESS:
 - CREDIT CARD PAYMENT METHOD (RESEARCH FOR OTHER API)
-    - Payment Info Validation (from Back-end);
-        - Credit Card #
-        - Exp. date
-        - CVV
+    - Payment Info Validation (from Back-end) - DONE
+        - Credit Card # - DONE
+        - Exp. date - DONE
+        - CVV - DONE
 
 - MAKE THE 'PAYMENT' PAGE RESPONSIVE
 

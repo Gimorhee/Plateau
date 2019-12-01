@@ -8,6 +8,26 @@ const config = require("config");
 const User = require("../../models/User");
 const Payment = require("../../models/Payment");
 
+// @route   GET api/payment/me
+// @desc    Get customer's payment info by Id
+// @access  Private
+router.get("/me", auth, async (req, res) => {
+  try {
+    let paymentInfo = await Payment.findOne({ user: req.user.id });
+
+    if (paymentInfo.length === 0) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: "No Delivery Information Found! " }] });
+    }
+
+    res.send(paymentInfo);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error");
+  }
+});
+
 // @route   POST api/payment/add
 // @desc    Add or Update payment information
 // @access  Private
