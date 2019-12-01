@@ -4,7 +4,7 @@ import {
     ADD_OR_UPDATE_PAYMENT_INFO
 } from "../actions/types";
 
-const intialState = {
+const initialState = {
     info: null,
     edit: false
 };

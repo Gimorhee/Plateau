@@ -2,8 +2,8 @@ import React, { Fragment, useState } from "react";
 import { setAlert } from "../../actions/alert";
 import { connect } from "react-redux";
 
-const PaymentInfo = ({ setAlert }) => {
-  const [info, setInfo] = useState({
+const PaymentInfo = ({ setAlert, payment: { info }, user }) => {
+  const [paymentInfo, setPaymentInfo] = useState({
     name: "",
     number: "",
     month: "",
@@ -11,15 +11,11 @@ const PaymentInfo = ({ setAlert }) => {
     cvv: ""
   });
 
-  const { name, number, month, year, cvv } = info;
-
-  const validateInfo = () => {
-      
-  }
+  const { name, number, month, year, cvv } = paymentInfo;
 
   const onChange = e => {
-    setInfo({
-      ...info,
+    setPaymentInfo({
+      ...paymentInfo,
       [e.target.name]: e.target.value
     });
   };
