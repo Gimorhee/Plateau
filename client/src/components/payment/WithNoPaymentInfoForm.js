@@ -2,9 +2,10 @@ import React, { useState, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addOrUpdatePaymentInfo } from "../../actions/payment";
+import WithPaymentInfoForm from "./WithPaymentInfoForm";
 
-const WithNoPaymentInfoForm = ({ addOrUpdatePaymentInfo }) => {
-    const [editState, setEditState] = useState(true);
+const WithNoPaymentInfoForm = ({ addOrUpdatePaymentInfo, payment: { info } }) => {
+  const [editState, setEditState] = useState(true);
 
   const [paymentInfo, setPaymentInfo] = useState({
     nameoncard: null,
@@ -29,8 +30,8 @@ const WithNoPaymentInfoForm = ({ addOrUpdatePaymentInfo }) => {
   };
 
   const changeEditState = () => {
-      setEditState(!editState);
-  }
+    setEditState(!editState);
+  };
 
   const onChange = e => {
     setPaymentInfo({
@@ -39,7 +40,7 @@ const WithNoPaymentInfoForm = ({ addOrUpdatePaymentInfo }) => {
     });
   };
 
-  return (
+  return editState === true ? (
     <Fragment>
       <form className="Payment-Info-Form">
         <div className="col-md-12">
@@ -114,11 +115,18 @@ const WithNoPaymentInfoForm = ({ addOrUpdatePaymentInfo }) => {
         </button>
       </div>
     </Fragment>
+  ) : (
+    <WithPaymentInfoForm info={info} />
   );
 };
 
 WithNoPaymentInfoForm.propTypes = {
-  addOrUpdatePaymentInfo: PropTypes.func.isRequired
+  addOrUpdatePaymentInfo: PropTypes.func.isRequired,
+  payment: PropTypes.object.isRequired
 };
 
-export default connect(null, { addOrUpdatePaymentInfo })(WithNoPaymentInfoForm);
+const mapStateToProps = state => ({
+    payment: state.payment
+});
+
+export default connect(mapStateToProps, { addOrUpdatePaymentInfo })(WithNoPaymentInfoForm);

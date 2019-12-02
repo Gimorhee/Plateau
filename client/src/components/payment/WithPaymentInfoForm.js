@@ -18,7 +18,7 @@ const WithPaymentInfoForm = ({ info }) => {
               type="text"
               name="name"
               className="form-control"
-              value={info.nameoncard}
+              value={info && info.nameoncard}
             />
           </div>
           <div className="form-group col-md-12">
@@ -29,7 +29,7 @@ const WithPaymentInfoForm = ({ info }) => {
               type="text"
               name="number"
               className="form-control"
-              value={info.cardnumber}
+              value={info && info.cardnumber}
             />
           </div>
           <div className="Payment-Extra-Info">
@@ -41,7 +41,7 @@ const WithPaymentInfoForm = ({ info }) => {
                 type="text"
                 name="month"
                 className="form-control"
-                value={info.expmonth}
+                value={info && info.expmonth}
               />
             </div>
             <div className="form-group col-md-2">
@@ -52,7 +52,7 @@ const WithPaymentInfoForm = ({ info }) => {
                 type="text"
                 name="year"
                 className="form-control"
-                value={info.expyear}
+                value={info && info.expyear}
               />
             </div>
             <div className="form-group col-md-2">
@@ -63,7 +63,7 @@ const WithPaymentInfoForm = ({ info }) => {
                 type="text"
                 name="cvv"
                 className="form-control"
-                value={info.cvv}
+                value={info && info.cvv}
               />
             </div>
             <button className="Delivery-Button" onClick={() => changeEditState()}>
