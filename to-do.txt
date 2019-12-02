@@ -1,10 +1,5 @@
 IN-PROGRESS:
-- CREDIT CARD PAYMENT METHOD (RESEARCH FOR OTHER API)
-    - Payment Info Validation (from Back-end) - DONE
-        - Credit Card # - DONE
-        - Exp. date - DONE
-        - CVV - DONE
-
+- COMPLETE-PURCHASE COMPONENT (IF ALL INFORMATION IS PROVIDED)
 - MAKE THE 'PAYMENT' PAGE RESPONSIVE
 
 TO-DOs: 
@@ -19,6 +14,7 @@ TO-DOs:
 - NOTIFICATION FLOATER FOR USERS TO LOGIN IN ORDER TO PURCHASE THE ITEMS (WITH X BUTTON)
 - ADD TESTIMONIAL, FOOTER, ITEM COMPONENT IN HOMEPAGE
 - NEED BETTER DESIGN FOR REGISTER / LOGIN 
+- EDIT ITEM COMPONENT DESIGN
 - COMPLETE README.md
 
 DONE:
@@ -50,4 +46,9 @@ DONE:
         - Need to work on design/css DONE
         - Need to work on Create/Edit (Action/Reducer) DONE
         - Display existing delivery info in the edit form (when user is trying to edit delivery info) - DONE
-
+- CREDIT CARD PAYMENT METHOD (RESEARCH FOR OTHER API)
+    - Payment Info Validation (from Back-end) - DONE
+        - Credit Card # - DONE
+        - Exp. date - DONE
+        - CVV - DONE
+    - Add/Update Payment Information - DONE

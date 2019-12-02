@@ -105,3 +105,30 @@
 .Payment-Button-Container {
     display: flex;
 }
+
+/* Complete Purchase Componenet */
+.Purchase-Container {
+    background: #f7f7f7;
+    border-radius: 25px;
+    width: 750px;
+    height: 180px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.Purchase-Info {
+    font-size: 17px;
+}
+
+.Complete-Purchase-Container {
+    display: flex;
+}
+
+.Purchase-Button {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background: #3c4245;
+    color: #f9f9f9;
+    font-size: 20px;
+}

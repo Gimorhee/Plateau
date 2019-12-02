@@ -9,6 +9,7 @@ import CustomerInfo from "./CustomerInfo";
 import DeliveryInfo from "./DeliveryInfo";
 import PaymentInfo from "./PaymentInfo";
 import OrderInfo from "./OrderInfo";
+import CompletePurchase from "./CompletePurchase";
 import Spinner from "../layout/Spinner";
 
 import "../../css/payment.css";
@@ -37,6 +38,7 @@ const Payment = ({
           <CustomerInfo user={user} />
           <DeliveryInfo delivery={delivery} user={user} />
           <PaymentInfo  payment={payment} user={user} />
+          <CompletePurchase items={items.items}/>
         </div>
 
         <div className="Order-Container">
