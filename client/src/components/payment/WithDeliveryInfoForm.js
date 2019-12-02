@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import WithNoDeliveryInfoForm from "./WithNoDeliveryInfoForm";
 
 const WithDeliveryInfoForm = ({ user, info }) => {
-  const [ editState, setEditState ] = useState(false);
+  const [editState, setEditState] = useState(false);
 
   const changeEditState = () => {
     setEditState(!editState);
-  }
+  };
 
-  return (
-    editState === false ? (
-      <div className="WithDeliveryInfo">
+  return editState === false ? (
+    <div className="WithDeliveryInfo">
       <h5>
         <strong>Delivery Type</strong>
       </h5>
@@ -19,17 +18,19 @@ const WithDeliveryInfoForm = ({ user, info }) => {
         <strong>Shipping Address</strong>
       </h5>
       <h5>
-        {user.firstName}, {info.address}, {info.city}, {info.province}, {info.zip}
+        {user.firstName}, {info.address}, {info.city}, {info.province},{" "}
+        {info.zip}
       </h5>
       <h5>
         <strong>Phone Number for delivery updates</strong>
       </h5>
       <h5>+1 {info.phone}</h5>
-      <button className="Delivery-Button" onClick={()=> changeEditState()}>EDIT</button>
+      <button className="Delivery-Button" onClick={() => changeEditState()}>
+        EDIT
+      </button>
     </div>
-    ) : (
-      < WithNoDeliveryInfoForm />
-    )
+  ) : (
+    <WithNoDeliveryInfoForm />
   );
 };
 

@@ -101,3 +101,7 @@
     display: flex;
     align-items: center;
 }
+
+.Payment-Button-Container {
+    display: flex;
+}

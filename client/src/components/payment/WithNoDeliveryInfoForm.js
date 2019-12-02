@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addOrUpdateDeliveryInfo } from "../../actions/delivery";
@@ -9,7 +9,7 @@ const WithNoDeliveryInfoForm = ({
   delivery: { info },
   auth: { user }
 }) => {
-  const [ editState, setEditState ] = useState(true);
+  const [editState, setEditState] = useState(true);
 
   const [deliveryInfo, setDeliveryInfo] = useState({
     address: null,
@@ -41,12 +41,12 @@ const WithNoDeliveryInfoForm = ({
       });
     }
   }, []);
-  
+
   const changeEditState = () => {
     setEditState(!editState);
-  }
+  };
 
-  const onClick = () => {
+  const addOrUpdate = () => {
     addOrUpdateDeliveryInfo(formData);
   };
 
@@ -58,9 +58,8 @@ const WithNoDeliveryInfoForm = ({
     setDeliveryInfo({ ...deliveryInfo, phone: e.target.value });
   };
 
-  return (
-    editState === true ? (
-      <div className="withNoDeliveryInfo">
+  return editState === true ? (
+    <Fragment>
       <form className="DeliveryInfo-Form">
         <div className="col-md-10 Delivery-Form-Container">
           <label className="form-label Delivery-Form-Label">
@@ -129,21 +128,22 @@ const WithNoDeliveryInfoForm = ({
         </div>
       </form>
       <div className="Delivery-Button-Container">
-        <button className="Delivery-Button" onClick={() => onClick()}>
+        <button className="Delivery-Button" onClick={() => addOrUpdate()}>
           ADD/UPDATE DELIVERY INFO
         </button>
         <button className="Delivery-Button" onClick={() => changeEditState()}>
           BACK TO PAYMENT
         </button>
       </div>
-    </div>
-    ) : <WithDeliveryInfoForm info={info} user={user} />
+    </Fragment>
+  ) : (
+    <WithDeliveryInfoForm info={info} user={user} />
   );
 };
 
 WithNoDeliveryInfoForm.propTypes = {
   addOrUpdateDeliveryInfo: PropTypes.func.isRequired,
-  deliver: PropTypes.object.isRequired,
+  delivery: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired
 };
 

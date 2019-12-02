@@ -42,7 +42,6 @@ export const addOrUpdatePaymentInfo = formData => async dispatch => {
         });
 
         dispatch(setAlert("Payment info successfully added/updated", "success"));
-        
     } catch (err) {
         const errors = err.response.data.errors;
 
