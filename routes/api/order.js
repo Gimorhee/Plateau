@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
+
+const User = require("../../models/User");
 const Order = require("../../models/Order");
 
 router.get("/", (req, res) => {
@@ -35,17 +37,17 @@ router.post(
       };
   
       try {
-        let order = await Order.findOne({ user: req.user.id });
+        let myOrder = await Order.findOne({ user: req.user.id });
   
-        if (!order) {
-          order = new Order({ user: req.user.id });
+        if (!myOrder) {
+            myOrder = new Order({ user: req.user.id });
         }
   
-        order.orders.unshift(newOrder);
+        myOrder.orders.unshift(newOrder);
   
-        await order.save();
+        await myOrder.save();
   
-        res.json(order);
+        res.json(myOrder);
       } catch (err) {
         console.error(err.message);
         res.status(500).send("Server Error");

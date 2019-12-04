@@ -32,7 +32,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        errors: payload
+        error: payload
       };
     case DELETE_ITEM:
     case CHANGE_ITEM_QUANTITY:

@@ -5,6 +5,7 @@ import items from "./items";
 import myCart from "./myCart";
 import delivery from "./delivery";
 import payment from "./payment";
+import order from "./order";
 
 export default combineReducers({
     alert,
@@ -12,5 +13,6 @@ export default combineReducers({
     items,
     myCart,
     delivery,
-    payment
+    payment,
+    order
 });

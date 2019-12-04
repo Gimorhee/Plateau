@@ -9,7 +9,7 @@ const OrderSchema = new Schema({
   orders: [
     {
       items: {
-        type: String,
+        type: Array,
         required: true
       },
       total: {
