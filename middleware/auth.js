@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
   if (!token) {
     return res
       .status(400)
-      .json({ error: "Authorization denied, please try again " });
+      .json({ error: "Authorization denied, please try again" });
   }
 
   try {
