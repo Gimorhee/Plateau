@@ -38,7 +38,7 @@ const Payment = ({
           <CustomerInfo user={user} />
           <DeliveryInfo delivery={delivery} user={user} />
           <PaymentInfo  payment={payment} user={user} />
-          <CompletePurchase items={items.items}/>
+          <CompletePurchase items={items.items} />
         </div>
 
         <div className="Order-Container">

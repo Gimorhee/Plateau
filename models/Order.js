@@ -8,11 +8,11 @@ const OrderSchema = new Schema({
   },
   orders: [
     {
-      items: {
+      orderItems: {
         type: Array,
         required: true
       },
-      total: {
+      orderTotal: {
         type: Number,
         required: true
       },

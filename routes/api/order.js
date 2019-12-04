@@ -15,10 +15,10 @@ router.post(
     "/complete",
     [
       auth,
-      check("items", "Items cannot be empty")
+      check("orderItems", "Items cannot be empty")
         .not()
         .isEmpty(),
-      check("total", "Total price must be provided")
+      check("orderTotal", "Total price must be provided")
         .not()
         .isEmpty()
     ],
@@ -29,11 +29,11 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
   
-      const { items, total } = req.body;
+      const { orderItems,  } = req.body;
   
       const newOrder = {
-        items,
-        total
+        orderItems,
+        orderTotal
       };
   
       try {

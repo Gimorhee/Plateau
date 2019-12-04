@@ -14,6 +14,7 @@ const OrderInfo = ({ items }) => {
   const priceAfterPST = Number(discountedPrice * PST).toFixed(2);
   const totalPrice = (
     discountedPrice +
+    deliveryFee +
     Number(priceAfterGSTPST) +
     Number(priceAfterPST)
   ).toFixed(2);
