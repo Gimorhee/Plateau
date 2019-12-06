@@ -11,6 +11,9 @@ router.get("/", (req, res) => {
     res.send("testing")
 });
 
+// @route   POST api/order/complete
+// @desc    Complete an order 
+// @access  Private
 router.post(
     "/complete",
     [
@@ -29,7 +32,7 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
   
-      const { orderItems,  } = req.body;
+      const { orderItems, orderTotal } = req.body;
   
       const newOrder = {
         orderItems,

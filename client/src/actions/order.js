@@ -13,7 +13,7 @@ export const completeOrder = orderData => async dispatch => {
 
     const body = JSON.stringify(orderData);
 
-    const res = await axios.post("api/order/complete", body, config);
+    const res = await axios.post("/api/order/complete", body, config);
 
     dispatch({
       type: COMPLETE_ORDER,
