@@ -4,12 +4,14 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { completeOrder } from "../../actions/order";
 import { clearMyCart } from "../../actions/myCart";
+import { isNull } from "util";
 
 const CompletePurchase = ({
   items,
   setAlert,
   completeOrder,
   payment: { info },
+  delivery,
   clearMyCart
 }) => {
   let orderValue = 0;
@@ -32,13 +34,6 @@ const CompletePurchase = ({
   ).toFixed(2);
 
   const completePurchase = () => {
-    if (info === null) {
-      setAlert(
-        "Please provide payment credential first to complete an order",
-        "danger"
-      );
-    }
-
     let orderItems = items.map(item => item.name);
     const orderTotal = Number(totalPrice);
     const orderData = {
@@ -46,8 +41,20 @@ const CompletePurchase = ({
       orderTotal
     };
 
-    completeOrder(orderData);
-    clearMyCart();
+    if (delivery.info === null) {
+      setAlert(
+        "Please provide delivery information first to complete an order",
+        "danger"
+      );
+    } else if (info === null) {
+      setAlert(
+        "Please provide payment credential first to complete an order",
+        "danger"
+      );
+    } else {
+        completeOrder(orderData);
+        clearMyCart();
+    }
   };
 
   return (
@@ -78,11 +85,14 @@ const CompletePurchase = ({
 CompletePurchase.propTypes = {
   setAlert: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
-  clearMyCart: PropTypes.func.isRequired
+  clearMyCart: PropTypes.func.isRequired,
+  payment: PropTypes.object.isRequired,
+  delivery: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  payment: state.payment
+  payment: state.payment,
+  delivery: state.delivery
 });
 
 export default connect(mapStateToProps, {

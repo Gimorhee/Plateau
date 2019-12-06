@@ -24,7 +24,7 @@ const WithDeliveryInfoForm = ({ user, info }) => {
       <h5>
         <strong>Phone Number for delivery updates</strong>
       </h5>
-      <h5>+1 {info.phone}</h5>
+      <h5>+1 {info && info.phone}</h5>
       <button className="Delivery-Button" onClick={() => changeEditState()}>
         EDIT
       </button>
