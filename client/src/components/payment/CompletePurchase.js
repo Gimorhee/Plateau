@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { completeOrder } from "../../actions/order";
 import { clearMyCart } from "../../actions/myCart";
-import { isNull } from "util";
+import { Redirect } from "react-router-dom";
 
 const CompletePurchase = ({
   items,
@@ -12,7 +12,8 @@ const CompletePurchase = ({
   completeOrder,
   payment: { info },
   delivery,
-  clearMyCart
+  clearMyCart,
+  myCart
 }) => {
   let orderValue = 0;
   items !== undefined &&
@@ -34,7 +35,7 @@ const CompletePurchase = ({
   ).toFixed(2);
 
   const completePurchase = () => {
-    let orderItems = items.map(item => item.name);
+    let orderItems = items !== undefined && items.map(item => item.name);
     const orderTotal = Number(totalPrice);
     const orderData = {
       orderItems,
@@ -56,6 +57,10 @@ const CompletePurchase = ({
         clearMyCart();
     }
   };
+
+  if(myCart.items.length === 0) {
+    return <Redirect to="/completedOrder" />
+  }
 
   return (
     <Fragment>
@@ -87,12 +92,14 @@ CompletePurchase.propTypes = {
   completeOrder: PropTypes.func.isRequired,
   clearMyCart: PropTypes.func.isRequired,
   payment: PropTypes.object.isRequired,
-  delivery: PropTypes.object.isRequired
+  delivery: PropTypes.object.isRequired,
+  myCart: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   payment: state.payment,
-  delivery: state.delivery
+  delivery: state.delivery,
+  myCart: state.myCart
 });
 
 export default connect(mapStateToProps, {

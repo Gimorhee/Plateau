@@ -15,6 +15,7 @@ import Accessory from "./components/items/Accessory";
 import Item from "./components/item/Item";
 import MyCart from "./components/myCart/MyCart";
 import Payment from "./components/payment/Payment";
+import CompletedOrder from "./components/payment/CompletedOrder";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import { loadUser } from "./actions/auth";
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/items/:id" component={Item} />
             <PrivateRoute exact path="/myCart/:userName" component={MyCart} />
             <PrivateRoute exact path="/payment/:userName" component={Payment} />
+            <PrivateRoute exact path="/completedOrder" component={CompletedOrder} />
           </Switch>
           <Footer />
         </Fragment>
