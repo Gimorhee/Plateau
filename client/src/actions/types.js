@@ -23,6 +23,7 @@ export const MYCART_ERROR = "MYCART_ERROR";
 export const GET_MYCART_ITEMS = "GET_MYCART_ITEMS";
 export const DELETE_ITEM = "DELETE_ITEM";
 export const CHANGE_ITEM_QUANTITY = "CHANGE_ITEM_QUANTITY";
+export const CLEAR_MYCART = "CLEAR_MYCART";
 
 // Delivery
 export const GET_DELIVERY_INFO = "GET_DELIVERY_INFO";

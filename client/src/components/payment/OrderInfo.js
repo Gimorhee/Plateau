@@ -2,7 +2,9 @@ import React, { Fragment } from "react";
 
 const OrderInfo = ({ items }) => {
   let orderValue = 0;
-  items.map(item => (orderValue += item.price * item.quantity));
+  items !== undefined && (
+    items.map(item => (orderValue += item.price * item.quantity))
+  )
 
   const discountRate = orderValue >= 200 ? 0.1 : 0;
   const deliveryFee = orderValue >= 100 ? 0 : 7.99;

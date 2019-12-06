@@ -3,10 +3,18 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
 import { completeOrder } from "../../actions/order";
+import { clearMyCart } from "../../actions/myCart";
 
-const CompletePurchase = ({ items, setAlert, completeOrder, payment: { info } }) => {
+const CompletePurchase = ({
+  items,
+  setAlert,
+  completeOrder,
+  payment: { info },
+  clearMyCart
+}) => {
   let orderValue = 0;
-  items.map(item => (orderValue += item.price * item.quantity));
+  items !== undefined &&
+    items.map(item => (orderValue += item.price * item.quantity));
 
   const discountRate = orderValue >= 200 ? 0.1 : 0;
   const deliveryFee = orderValue >= 100 ? 0 : 7.99;
@@ -24,19 +32,23 @@ const CompletePurchase = ({ items, setAlert, completeOrder, payment: { info } })
   ).toFixed(2);
 
   const completePurchase = () => {
-    if(info === null) {
-        setAlert("Please provide payment credential first to complete an order", "danger");
+    if (info === null) {
+      setAlert(
+        "Please provide payment credential first to complete an order",
+        "danger"
+      );
     }
 
     let orderItems = items.map(item => item.name);
     const orderTotal = Number(totalPrice);
     const orderData = {
-        orderItems,
-        orderTotal
-    }
+      orderItems,
+      orderTotal
+    };
 
     completeOrder(orderData);
-  }
+    clearMyCart();
+  };
 
   return (
     <Fragment>
@@ -51,7 +63,10 @@ const CompletePurchase = ({ items, setAlert, completeOrder, payment: { info } })
           personal data in accorance with the Plateau's <u>Privacy Notice.</u>
         </p>
         <div className="Complete-Purchase-Container">
-          <button className="Purchase-Button" onClick={() => completePurchase()}>
+          <button
+            className="Purchase-Button"
+            onClick={() => completePurchase()}
+          >
             COMPLETE PURCHASE ${totalPrice}
           </button>
         </div>
@@ -62,11 +77,16 @@ const CompletePurchase = ({ items, setAlert, completeOrder, payment: { info } })
 
 CompletePurchase.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  completeOrder: PropTypes.func.isRequired
+  completeOrder: PropTypes.func.isRequired,
+  clearMyCart: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-    payment: state.payment
-})
+  payment: state.payment
+});
 
-export default connect(mapStateToProps, { setAlert, completeOrder })(CompletePurchase);
+export default connect(mapStateToProps, {
+  setAlert,
+  completeOrder,
+  clearMyCart
+})(CompletePurchase);

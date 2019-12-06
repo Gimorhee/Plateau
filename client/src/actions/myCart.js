@@ -4,7 +4,8 @@ import {
   MYCART_ERROR,
   GET_MYCART_ITEMS,
   DELETE_ITEM,
-  CHANGE_ITEM_QUANTITY
+  CHANGE_ITEM_QUANTITY,
+  CLEAR_MYCART
 } from "./types";
 import { setAlert } from "./alert";
 
@@ -72,7 +73,25 @@ export const deleteItem = itemId => async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Item is successfully removed from your cart", "success"));
+    dispatch(
+      setAlert("Item is successfully removed from your cart", "success")
+    );
+  } catch (err) {
+    dispatch({
+      type: MYCART_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+// Delete whole MyCart Items
+export const clearMyCart = () => async dispatch => {
+  try {
+    await axios.delete("/api/myCart/clearCart");
+
+    dispatch({
+      type: CLEAR_MYCART
+    });
   } catch (err) {
     dispatch({
       type: MYCART_ERROR,
@@ -82,7 +101,7 @@ export const deleteItem = itemId => async dispatch => {
 };
 
 // Change quantity of a item in MyCart
-export const changeItemQuantity = ({ itemId, quantity })=> async dispatch => {
+export const changeItemQuantity = ({ itemId, quantity }) => async dispatch => {
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -91,7 +110,7 @@ export const changeItemQuantity = ({ itemId, quantity })=> async dispatch => {
 
   const editData = {
     quantity
-  }
+  };
 
   const body = JSON.stringify(editData);
 
@@ -103,11 +122,13 @@ export const changeItemQuantity = ({ itemId, quantity })=> async dispatch => {
       payload: res.data
     });
 
-    dispatch(setAlert("Item quantity is successfully changed for the item", "success"));
+    dispatch(
+      setAlert("Item quantity is successfully changed for the item", "success")
+    );
   } catch (err) {
     dispatch({
       type: MYCART_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
-}
+};

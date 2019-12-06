@@ -136,6 +136,27 @@ router.delete("/item/:itemId", auth, async (req, res) => {
   }
 });
 
+// @route   DELETE api/myCart/clearCart
+// @desc    Delete/clear whole myCart items
+// @access  Private
+router.delete("/clearCart", auth, async (req, res) => {
+  try {
+    let myCart = await MyCart.findOne({ user: req.user.id });
+
+    await myCart.remove(
+      { user: req.user. id }
+    )
+
+    await myCart.save()
+
+    console.log("Deleted successfully");
+    return res.json("Deleted successfully");
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error"); 
+  }
+}); 
+
 // @route   PUT api/myCart/item/:itemId
 // @desc    Edit MyCart Item Quantity
 // @access  Private

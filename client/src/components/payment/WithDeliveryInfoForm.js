@@ -18,8 +18,8 @@ const WithDeliveryInfoForm = ({ user, info }) => {
         <strong>Shipping Address</strong>
       </h5>
       <h5>
-        {user.firstName}, {info.address}, {info.city}, {info.province},{" "}
-        {info.zip}
+        {user && user.firstName}, {info && info.address}, {info && info.city}, {info && info.province},{" "}
+        {info && info.zip}
       </h5>
       <h5>
         <strong>Phone Number for delivery updates</strong>

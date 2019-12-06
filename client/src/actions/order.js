@@ -23,8 +23,7 @@ export const completeOrder = orderData => async dispatch => {
     dispatch(setAlert("Your order has been successfully purchased", "success"));
   } catch (err) {
     dispatch({
-      type: ORDER_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      type: ORDER_ERROR
     });
   }
 };
