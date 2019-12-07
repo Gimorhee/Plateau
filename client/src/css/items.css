@@ -100,9 +100,147 @@ div {
     outline: 0;
 }
 
+@media (max-width: 1800px) {
+    .Items-Item-Container {
+        width: 500px;
+    }
+
+    .Items-Name {
+        font-size: 20px;
+    }
+
+    .Items-Price {
+        font-size: 15px;
+    }
+
+    .Items-Button {
+        color: #212529;
+        margin-right: 30px;
+        font-size: 20px;
+        font-weight: 700;
+        height: 50px;
+        width: 55px;
+        border: 2px solid #212529;
+        border-radius: 20px;
+        background: #f9f9f9;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 4px #3c4245;
+    }
+
+    .Items-Button:hover {
+        box-shadow: 0 3px #3c4245;
+        top: 1px;
+    }
+    
+    .Items-Button:active {
+        box-shadow: none;
+        top: 4px;
+    }
+    
+    .Items-Button:focus {
+        outline: 0;
+    }
+
+    .Selection-Quantity {
+        border: 2px solid;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 25px;
+    }
+    
+    .Selection-Size {
+        border: 2px solid;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        height: 25px;
+        width: 100%;
+        box-shadow: 0 4px #3c4245;
+    }
+
+    .Selection-Container {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 1300px) {
     .Items-Item-Container {
         width: 425px;
+    }
+
+    .Items-Name {
+        font-size: 20px;
+    }
+
+    .Items-Price {
+        font-size: 15px;
+    }
+
+    .Items-Button {
+        color: #212529;
+        margin-right: 30px;
+        font-size: 20px;
+        font-weight: 700;
+        height: 50px;
+        width: 55px;
+        border: 2px solid #212529;
+        border-radius: 20px;
+        background: #f9f9f9;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        position: relative;
+        border-radius: 20px;
+        box-shadow: 0 4px #3c4245;
+    }
+
+    .Items-Button:hover {
+        box-shadow: 0 3px #3c4245;
+        top: 1px;
+    }
+    
+    .Items-Button:active {
+        box-shadow: none;
+        top: 4px;
+    }
+    
+    .Items-Button:focus {
+        outline: 0;
+    }
+
+    .Selection-Quantity {
+        border: 2px solid;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 25px;
+    }
+    
+    .Selection-Size {
+        border: 2px solid;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        height: 25px;
+        width: 100%;
+        box-shadow: 0 4px #3c4245;
+    }
+
+    .Selection-Container {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    .Items-Item-Container {
+        width: 100%;
     }
 
     .Items-Name {

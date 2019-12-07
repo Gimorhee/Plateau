@@ -24,7 +24,7 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
 
     const newData = data && (data.split(","));
 
-    const name = newData[0]
+    const name = newData[0];
     const price = Number(newData[1]);
     const image = newData[2];
     const type = newData[3];

@@ -1,16 +1,35 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const CompletedOrder = props => {
-    return (
-        <div>
-            THANK YOU FOR YOUR PURCHASE
-        </div>
-    )
-}
+import "../../css/completedOrder.css";
+
+const CompletedOrder = ({ auth: { user }, order }) => {
+  return (
+    <Fragment>
+      <div className='CompletedOrder-Container'>
+        <h5 className="Confirmation-Header">
+          Thank you ' {user && user.firstName}' your order has been successfully
+                  placed!
+        </h5>
+              <p>
+                  You will receive a summary of your order via email shortly.
+              </p>
+              <h5 className="OrderNumber">Your Order #: {user && user._id}</h5>
+        <a className="Continue-Link" href='/'>Continue Shopping</a>
+      </div>
+    </Fragment>
+  );
+};
 
 CompletedOrder.propTypes = {
+  auth: PropTypes.object.isRequired,
+  order: PropTypes.object.isRequired
+};
 
-}
+const mapStateToProps = state => ({
+  auth: state.auth,
+  order: state.order
+});
 
-export default CompletedOrder
+export default connect(mapStateToProps)(CompletedOrder);

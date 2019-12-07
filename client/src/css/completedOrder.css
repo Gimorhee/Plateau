@@ -1,0 +1,37 @@
+.CompletedOrder-Container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   align-content: center;
+   margin: auto;
+
+
+   font-family: 'Indie Flower', cursive;
+   padding-top: 65px;
+   background: #f7f7f7;
+   border-radius: 25px;
+   width: 90%;
+   height: 450px;
+   margin-bottom: 15px;
+}
+
+.Confirmation-Header {
+    font-size: 2.5rem;
+}
+
+.OrderNumber {
+    font-size: 1.7rem;
+}
+
+.Continue-Link {
+    padding-top: 90px;
+    font-size: 20px;
+    text-decoration: none;
+    color: grey
+}
+
+.Continue-Link:hover {
+    padding-top: 90px;
+    font-size: 20px;
+    color: black;
+}
