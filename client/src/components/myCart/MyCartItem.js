@@ -28,7 +28,7 @@ const MyCartItem = ({ item, deleteItem, changeItemQuantity, user }) => {
             <strong>{item.name}</strong>
           </h3>
           <h4>${item.price}</h4>
-          <h4>Type: {item.type[0].toUpperCase() + item.type.slice(1,item.type.length-1)}</h4>
+          <h4>Type: {item.type[0].toUpperCase() + item.type.slice(1,item.type.length)}</h4>
           <h4>Size: {item.size}</h4>
           <div className="MyCart-Customize">
             <button className="MyCart-Like">

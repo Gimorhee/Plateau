@@ -132,3 +132,248 @@
     color: #f9f9f9;
     font-size: 20px;
 }
+
+@media (max-width: 1400px) {
+    .Order-Container {
+        padding: 25px 25px 25px 25px;
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 600px;
+        height: 750px;
+        padding-right: 50px;
+    }
+
+    .Delivery-Button {
+        font-size: 15px;
+    }
+    
+    .Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 600px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Delivery-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 600px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Payment-Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 600px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Purchase-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 600px;
+        height: 220px !important;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .Order-Container {
+        padding: 25px 25px 25px 25px;
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 550px;
+        height: 750px;
+        padding-right: 50px;
+    }
+    
+    .Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 550px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Delivery-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 550px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Payment-Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 550px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Purchase-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 550px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .Order-Container {
+        padding: 25px 25px 25px 25px;
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 500px;
+        height: 750px;
+        padding-right: 50px;
+    }
+    
+    .Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 500px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Delivery-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 500px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Payment-Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 500px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Purchase-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 500px;
+        height: 250px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .Order-Container {
+        padding: 25px 25px 25px 25px;
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 450px;
+        height: 750px;
+        padding-right: 50px;
+    }
+    
+    .Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 450px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Delivery-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 450px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Payment-Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 450px;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Purchase-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 450px;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .Payment-Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Order-Container {
+        padding: 25px 25px 25px 25px;
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 100%;
+        height: 750px;
+        padding-right: 50px;
+    }
+    
+    .Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 100%;
+        height: 180px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Delivery-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 100%;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Payment-Info-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 100%;
+        height: 450px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+
+    .Purchase-Container {
+        background: #f7f7f7;
+        border-radius: 25px;
+        width: 100%;
+        height: 250px;
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}

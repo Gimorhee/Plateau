@@ -143,6 +143,7 @@
 
     .Checkout-Container {
         width: 600px;
+        height: 100%;
     }
 
     .Empty-Cart {
@@ -232,11 +233,11 @@
     }
 
     .MyCart-Items {
-        width: 650px;
+        width: 500px;
     }
 
     .Checkout-Container {
-        width: 650px;
+        width: 500px;
     }
 
     .Empty-Cart {

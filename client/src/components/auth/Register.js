@@ -94,11 +94,10 @@ const Register = ({ setAlert, register, auth: { isAuthenticated } }) => {
           onChange={e => onChange(e)}
           
         />
-        <div className="checkbox mb-3"></div>
         <button className="btn btn-lg btn-dark btn-block" type="submit">
           Sign Up
         </button>
-        <p className="my-1">
+        <p className="my-1 Register-Footer">
           Already have an account? <Link to="/login">Sign In</Link>
         </p>
       </form>

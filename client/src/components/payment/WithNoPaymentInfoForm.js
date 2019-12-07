@@ -83,7 +83,7 @@ const WithNoPaymentInfoForm = ({
           />
         </div>
         <div className="Payment-Extra-Info">
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>Exp. Month</strong>
             </label>
@@ -95,7 +95,7 @@ const WithNoPaymentInfoForm = ({
               onChange={e => onChange(e)}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>Exp. Year</strong>
             </label>
@@ -107,7 +107,7 @@ const WithNoPaymentInfoForm = ({
               onChange={e => onChange(e)}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>CVV*</strong>
             </label>
@@ -131,7 +131,7 @@ const WithNoPaymentInfoForm = ({
       </div>
     </Fragment>
   ) : (
-    <WithPaymentInfoForm info={paymentInfo} />
+    <WithPaymentInfoForm info={info} />
   );
 };
 

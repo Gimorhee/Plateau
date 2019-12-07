@@ -67,7 +67,7 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
       <SubNav />
       <div className="Items-Container">
         {items.map(item => (
-          <div key={item._id}>
+          <div key={item._id} className="Items-Item-Container">
             <img className="Items-Image" src={item.image} alt="" />
             <div className="Items-Info">
               <div className="Items-Spec">
@@ -79,7 +79,6 @@ const Outer = ({ getTypeItems, addToCart, items: { items, loading } }) => {
                   Info
                 </a>
               </button>
-              {/* TODO: My-Cart API / ROUTE / LOGIC / ACTION / REDUCER */}
               <div className="Selection-Container">
                 <select
                   className="Selection-Quantity"

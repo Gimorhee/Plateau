@@ -56,11 +56,10 @@ const Login = ({ login, auth: { isAuthenticated } }) => {
           onChange={e => onChange(e)}
           required
         />
-        <div className="checkbox mb-3"></div>
         <button className="btn btn-lg btn-dark btn-block" type="submit">
           Sign In
         </button>
-        <p className="my-1">
+        <p className="my-1" id="Login-Footer">
           Don't have an account? <Link to="/register">Sign Up</Link>
         </p>
       </form>

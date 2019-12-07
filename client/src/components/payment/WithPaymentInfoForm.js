@@ -34,7 +34,7 @@ const WithPaymentInfoForm = ({ info }) => {
           />
         </div>
         <div className="Payment-Extra-Info">
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>Exp. Month</strong>
             </label>
@@ -45,7 +45,7 @@ const WithPaymentInfoForm = ({ info }) => {
               value={info && info.expmonth}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>Exp. Year</strong>
             </label>
@@ -56,7 +56,7 @@ const WithPaymentInfoForm = ({ info }) => {
               value={info && info.expyear}
             />
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <label className="Payment-Info-Label">
               <strong>CVV*</strong>
             </label>

@@ -9,9 +9,11 @@
   font-family: 'Indie Flower', cursive;
   font-size: 30px;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -19,6 +21,7 @@
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
@@ -35,4 +38,26 @@ button.btn {
 
 h1.h1 {
     font-size: 50px;
+}
+
+@media (max-width: 1300px) {
+  .form-signin {
+    width: 100%;
+    max-width: 650px;
+    padding: 0 105px 105px 105px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Indie Flower', cursive;
+    font-size: 30px;
+  }
+
+  .Register-Footer {
+    font-size: 20px;
+  }
+
+  #Login-Footer {
+    font-size: 20px;
+  }
 }

@@ -2,12 +2,14 @@ import React, { useState, useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { addOrUpdateDeliveryInfo } from "../../actions/delivery";
+import { setAlert } from "../../actions/alert";
 import WithDeliveryInfoForm from "./WithDeliveryInfoForm";
 
 const WithNoDeliveryInfoForm = ({
   addOrUpdateDeliveryInfo,
   delivery: { info },
-  auth: { user }
+  auth: { user }, 
+  setAlert
 }) => {
   const [editState, setEditState] = useState(true);
 
@@ -43,7 +45,17 @@ const WithNoDeliveryInfoForm = ({
   }, []);
 
   const changeEditState = () => {
-    setEditState(!editState);
+    if (
+      address === null ||
+      city === null ||
+      province === null ||
+      zip === null ||
+      phone === null
+    ) {
+      setAlert("Some of your delivery informaiton is not provided", "danger");
+    } else {
+      setEditState(!editState);
+    }
   };
 
   const addOrUpdate = () => {
@@ -152,6 +164,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { addOrUpdateDeliveryInfo })(
+export default connect(mapStateToProps, { addOrUpdateDeliveryInfo, setAlert })(
   WithNoDeliveryInfoForm
 );
