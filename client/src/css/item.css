@@ -1,18 +1,22 @@
-h1 {
+.Item-Name {
     font-weight: 900 !important;
 }
 
-h2 {
+.Item-Price {
     font-weight: 900!important;
 }
 
-h6 {
+.Item-Type {
+    font-weight: 900;
+}
+
+.Item-Description {
     font-size: 32px !important;
     font-weight: 900 !important;
     text-decoration: underline;
 }
 
-p {
+.Item-Details {
     font-size: 32px;
     font-weight: 500 !important;
 }
@@ -74,7 +78,7 @@ tr {
     height: 65px;
     width: 150px;
     border: 2px solid #212529;
-    border-radius: 20px;
+    border-radius: 5px;
     background: #f9f9f9;
     outline: none;
     cursor: pointer;

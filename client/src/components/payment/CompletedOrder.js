@@ -7,16 +7,16 @@ import "../../css/completedOrder.css";
 const CompletedOrder = ({ auth: { user }, order }) => {
   return (
     <Fragment>
-      <div className='CompletedOrder-Container'>
+      <div className="CompletedOrder-Container">
         <h5 className="Confirmation-Header">
-          Thank you ' {user && user.firstName}' your order has been successfully
-                  placed!
+          Thank you ' {user && user.firstName} ' your order has been
+          successfully placed!
         </h5>
-              <p>
-                  You will receive a summary of your order via email shortly.
-              </p>
-              <h5 className="OrderNumber">Your Order #: {user && user._id}</h5>
-        <a className="Continue-Link" href='/'>Continue Shopping</a>
+        <p className="Confirmation-Info">You will receive a summary of your order via email shortly.</p>
+        <h5 className="OrderNumber">Your Order #: {user && user._id}</h5>
+        <a className="Continue-Link" href="/">
+          Continue Shopping
+        </a>
       </div>
     </Fragment>
   );
