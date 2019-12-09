@@ -104,11 +104,11 @@ const CompletePurchase = ({
               <td><strong>TOTAL</strong></td>
             </tr>
             <tr>
-              <td>${priceAfterGSTPST}</td>
-              <td>${priceAfterPST}</td>
-              <td>${discountedPrice}</td>
-              <td>${deliveryFee}</td>
-              <td>${totalPrice}</td>
+              <td>$${priceAfterGSTPST}</td>
+              <td>$${priceAfterPST}</td>
+              <td>$${discountedPrice}.00</td>
+              <td>$${deliveryFee}</td>
+              <td>$${totalPrice}</td>
             </tr>
           </table>
         </div>
