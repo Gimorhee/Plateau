@@ -66,7 +66,7 @@ const CompletePurchase = ({
       `  
         <div>
           <h1>YOUR ORDER IS PLACED SUCCESSFULLY!</h1>
-          <p>Thank you ${user.firstName} for shopping at Plateau.</p>
+          <h4>Thank you ${user.firstName} for shopping at Plateau!</h4>
           <p>You can track your order using the order tracking numbers listed below or log in to Plateau and view your shipped orders. Please note it will take up to 24 hours before tracking information is available.</p>
           
           <br>
@@ -95,6 +95,21 @@ const CompletePurchase = ({
               <td><strong>PRICE</strong></td>
             </tr>
             ${orderSummary}
+            <br>
+            <tr>
+              <td><strong>GST/HST</strong></td>
+              <td><strong>PST</strong></td>
+              <td><strong>DISCOUNTS</strong></td>
+              <td><strong>DELIVERY</strong></td>
+              <td><strong>TOTAL</strong></td>
+            </tr>
+            <tr>
+              <td>${priceAfterGSTPST}</td>
+              <td>${priceAfterPST}</td>
+              <td>${discountedPrice}</td>
+              <td>${deliveryFee}</td>
+              <td>${totalPrice}</td>
+            </tr>
           </table>
         </div>
       `
