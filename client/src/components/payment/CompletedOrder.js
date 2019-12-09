@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 import "../../css/completedOrder.css";
 
-const CompletedOrder = ({ auth: { user }, order }) => {
-  return (
+const CompletedOrder = ({ auth: { user } }) => {
+return (
     <Fragment>
       <div className="CompletedOrder-Container">
         <h5 className="Confirmation-Header">
@@ -23,13 +23,11 @@ const CompletedOrder = ({ auth: { user }, order }) => {
 };
 
 CompletedOrder.propTypes = {
-  auth: PropTypes.object.isRequired,
-  order: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  order: state.order
+  auth: state.auth
 });
 
 export default connect(mapStateToProps)(CompletedOrder);

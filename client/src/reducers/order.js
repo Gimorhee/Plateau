@@ -1,4 +1,9 @@
-import { COMPLETE_ORDER, ORDER_ERROR } from "../actions/types";
+import {
+  COMPLETE_ORDER,
+  ORDER_ERROR,
+  CONFIRMATION_EMAIL_SENT,
+  EMAIL_ERROR
+} from "../actions/types";
 
 const initialState = {
   orders: [],
@@ -16,6 +21,12 @@ export default function(state = initialState, action) {
         orders: [payload, ...state.orders],
         loading: false
       };
+    case CONFIRMATION_EMAIL_SENT: 
+    case EMAIL_ERROR:
+      return {
+        ...state,
+        loading: false
+      }
     case ORDER_ERROR:
       return {
         ...state,

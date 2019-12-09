@@ -1,0 +1,5 @@
+{
+    "mongoURI": "mongodb+srv://admin-danny:ehd810041@cluster0-duikt.mongodb.net/Practice?retryWrites=true&w=majority",
+    "jwtSecret": "twt-token-secret",
+    "SENDGRID_API_KEY": "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"
+}
