@@ -67,11 +67,11 @@ const CompletePurchase = ({
         <div>
           <h1>YOUR ORDER IS PLACED SUCCESSFULLY!</h1>
           <h4>Thank you ${user.firstName} for shopping at Plateau!</h4>
-          <p>You can track your order using the order tracking numbers listed below or log in to Plateau and view your shipped orders. Please note it will take up to 24 hours before tracking information is available.</p>
-          
+          <p>You can track your order using the order tracking numbers listed below or log in to Plateau and view your shipped orders. </p>
+          <p>Please note it will take up to 24 hours before tracking information is available. </p>
           <br>
           <h2>YOUR DETAILS</h2>
-          <table style="width:50%">
+          <table style="width:80%">
               <tr>
                 <td><strong>NAME:</strong> <br>${user.firstName} ${user.lastName}</td>
                 <td><strong>EMAIL:</strong> <br>${user.email}</td>
@@ -86,7 +86,7 @@ const CompletePurchase = ({
           <br>
           <br>
           <h2>ORDER SUMMARY</h2>
-          <table style="width:40%">
+          <table style="width:70%">
             <tr>
               <td><strong>ITEM. NO.</strong></td>
               <td><strong>DESCRIPTION</strong></td>
