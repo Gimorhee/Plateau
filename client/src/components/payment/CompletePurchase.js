@@ -106,7 +106,7 @@ const CompletePurchase = ({
             <tr>
               <td>$${priceAfterGSTPST}</td>
               <td>$${priceAfterPST}</td>
-              <td>$${discountedPrice}.00</td>
+              <td>$${discountPrice}</td>
               <td>$${deliveryFee}</td>
               <td>$${totalPrice}</td>
             </tr>
