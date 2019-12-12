@@ -9,29 +9,10 @@ import "../../css/item.css";
 
 const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
   const [cartData, setCartData] = useState({
-    name: "",
-    price: null,
     size: null,
-    type: "",
-    image: "",
     quantity: null
   });
-
-  const { name, price, size, type, image, quantity } = cartData;
-
-  const onMouseOver = e => {
-    const data = e.target.name;
-
-    const newData = data && data.split(",");
-
-    const name = newData[0];
-    const price = Number(newData[1]);
-    const image = newData[2];
-    const type = newData[3];
-
-    setCartData({ ...cartData, name, price, image, type });
-  };
-
+  
   const changeSize = e => {
     setCartData({ ...cartData, size: e.target.value });
   };
@@ -43,16 +24,7 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    const formData = {
-      name,
-      price,
-      size,
-      type,
-      image,
-      quantity
-    };
-
-    addToCart(formData);
+    addToCart({ ...cartData, name: item.name, price: item.price, type: item.type , image: item.image});
   };
 
   useEffect(() => {
@@ -126,7 +98,6 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
                 <button
                   className="Item-Button"
                   name={`${item.name},${item.price},${item.image},${item.type}`}
-                  onMouseOver={e => onMouseOver(e)}
                 >
                   <i className="fas fa-shopping-cart" /> ADD TO CART
                 </button>
