@@ -1,13 +1,14 @@
 # PLATEAU 1.0.0
 
 Plateau is an e-ccommerce, fully-responsive and full-stack application built with MERN (Mongo, Express, React/Redux, Node.js) stacks for purpose of:
-- Learning React/Reduct from Front to Back
-- Writing efficient and re-usable back-end APIs using Node.js and Express
+
+- Learning React/Redux
+- Writing efficient and re-usable back-end APIs using Node.js
 - Making API calls to access data from the database to the client-side page using Axios
 - Mananging application states to be mapped to multiple container components
-- Plateau is still in development process
 
 ## QUICK START
+
 ```
 # Create default.json file in config folder
 # This file must be located in config/default.json
@@ -18,7 +19,6 @@ Plateau is an e-ccommerce, fully-responsive and full-stack application built wit
     "jwtSecret": "twt-token-secret"
 }
 ```
-
 
 ```
 # Install Server Dependencies
@@ -36,9 +36,16 @@ cd client
 npm run build
 ```
 
+## FINAL PRODUCT
+
+![1](./images/1.png)
 
 ## APP INFO
+
 ### Author
+
 Danny Rhee
+
 ### Version
+
 1.0.0
