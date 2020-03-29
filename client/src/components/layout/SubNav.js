@@ -17,12 +17,12 @@ const SubNav = props => {
           <a className="py-2 d-none d-md-inline-block" href="/pants">
             PANTS
           </a>
-          <a className="py-2 d-none d-md-inline-block" href="/shoes">
+          {/* <a className="py-2 d-none d-md-inline-block" href="/shoes">
             SHOES
           </a>
           <a className="py-2 d-none d-md-inline-block" href="/accessory">
             ACCESSORY
-          </a>
+          </a> */}
         </div>
       </nav>
       <br />

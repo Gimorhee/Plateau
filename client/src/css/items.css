@@ -1,39 +1,130 @@
 .Items-Container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center; 
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.Items-Item-Container {
+  width: 33.33%;
 }
 
 .Items-Image {
-    padding: 1rem;
-    width: 100%;
-    border-radius: 50px;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 50px;
 }
 
 .Items-Info {
-    margin-left: 30px;
-    font-family: 'Indie Flower', cursive;
-    font-weight: 900;
-    font-size: 25px;
-    display: flex;
-    justify-content: space-between;
+  margin-left: 30px;
+  font-family: "Indie Flower", cursive;
+  font-weight: 900;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Items-Spec {
-    width: 500px;
+  width: 500px;
 }
 
 .Items-Name {
-    font-weight: 900;
+  font-weight: 900;
 }
 
 .Items-Button {
+  color: #212529;
+  margin-right: 30px;
+  font-size: 30px;
+  font-weight: 700;
+  height: 65px;
+  width: 75px;
+  border: 2px solid #212529;
+  border-radius: 20px;
+  background: #f9f9f9;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 6px #3c4245;
+}
+
+.Items-Button:hover {
+  box-shadow: 0 4px #3c4245;
+  top: 2px;
+}
+
+.Items-Button:active {
+  box-shadow: none;
+  top: 6px;
+}
+
+.Items-Button:focus {
+  outline: 0;
+}
+
+.Items-Link {
+  color: #212529;
+}
+
+.Items-Link:hover {
+  color: #212529;
+  text-decoration: none;
+}
+
+div {
+  overflow: hidden;
+}
+
+.Selection-Container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.Selection-Quantity {
+  border: 2px solid;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 33px;
+}
+
+.Selection-Size {
+  border: 2px solid;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  height: 33px;
+  box-shadow: 0 4px #3c4245;
+}
+
+.Selection-Size:focus {
+  outline: 0;
+}
+
+.Selection-Quantity:focus {
+  outline: 0;
+}
+
+@media (max-width: 1800px) {
+  .Items-Item-Container {
+    width: 500px;
+  }
+
+  .Items-Name {
+    font-size: 20px;
+  }
+
+  .Items-Price {
+    font-size: 15px;
+  }
+
+  .Items-Button {
     color: #212529;
     margin-right: 30px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 700;
-    height: 65px;
-    width: 75px;
+    height: 50px;
+    width: 55px;
     border: 2px solid #212529;
     border-radius: 20px;
     background: #f9f9f9;
@@ -42,268 +133,182 @@
     display: block;
     position: relative;
     border-radius: 20px;
-    box-shadow: 0 6px #3c4245;
-}
-
-.Items-Button:hover {
     box-shadow: 0 4px #3c4245;
-    top: 2px;
-}
+  }
 
-.Items-Button:active {
+  .Items-Button:hover {
+    box-shadow: 0 3px #3c4245;
+    top: 1px;
+  }
+
+  .Items-Button:active {
     box-shadow: none;
-    top: 6px;
-}
+    top: 4px;
+  }
 
-.Items-Button:focus {
+  .Items-Button:focus {
     outline: 0;
-}
+  }
 
-.Items-Link {
-    color: #212529;
-}
-
-.Items-Link:hover {
-    color: #212529;
-    text-decoration: none;
-}
-
-div {
-    overflow: hidden;
-} 
-
-.Selection-Container {
-    display: flex;
-    flex-direction: column;
-}
-
-.Selection-Quantity {
+  .Selection-Quantity {
     border: 2px solid;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
-    height: 33px;
-}
+    height: 25px;
+  }
 
-.Selection-Size {
+  .Selection-Size {
     border: 2px solid;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    height: 33px;
+    height: 25px;
+    width: 100%;
     box-shadow: 0 4px #3c4245;
-}
+  }
 
-.Selection-Size:focus {
-    outline: 0;
-}
-
-.Selection-Quantity:focus {
-    outline: 0;
-}
-
-@media (max-width: 1800px) {
-    .Items-Item-Container {
-        width: 500px;
-    }
-
-    .Items-Name {
-        font-size: 20px;
-    }
-
-    .Items-Price {
-        font-size: 15px;
-    }
-
-    .Items-Button {
-        color: #212529;
-        margin-right: 30px;
-        font-size: 20px;
-        font-weight: 700;
-        height: 50px;
-        width: 55px;
-        border: 2px solid #212529;
-        border-radius: 20px;
-        background: #f9f9f9;
-        outline: none;
-        cursor: pointer;
-        display: block;
-        position: relative;
-        border-radius: 20px;
-        box-shadow: 0 4px #3c4245;
-    }
-
-    .Items-Button:hover {
-        box-shadow: 0 3px #3c4245;
-        top: 1px;
-    }
-    
-    .Items-Button:active {
-        box-shadow: none;
-        top: 4px;
-    }
-    
-    .Items-Button:focus {
-        outline: 0;
-    }
-
-    .Selection-Quantity {
-        border: 2px solid;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        height: 25px;
-    }
-    
-    .Selection-Size {
-        border: 2px solid;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        height: 25px;
-        width: 100%;
-        box-shadow: 0 4px #3c4245;
-    }
-
-    .Selection-Container {
-        display: flex;
-        flex-direction: column;
-        width: 100px;
-        font-size: 12px;
-    }
+  .Selection-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 1300px) {
-    .Items-Item-Container {
-        width: 425px;
-    }
+  .Items-Item-Container {
+    width: 425px;
+  }
 
-    .Items-Name {
-        font-size: 20px;
-    }
+  .Items-Name {
+    font-size: 20px;
+  }
 
-    .Items-Price {
-        font-size: 15px;
-    }
+  .Items-Price {
+    font-size: 15px;
+  }
 
-    .Items-Button {
-        color: #212529;
-        margin-right: 30px;
-        font-size: 20px;
-        font-weight: 700;
-        height: 50px;
-        width: 55px;
-        border: 2px solid #212529;
-        border-radius: 20px;
-        background: #f9f9f9;
-        outline: none;
-        cursor: pointer;
-        display: block;
-        position: relative;
-        border-radius: 20px;
-        box-shadow: 0 4px #3c4245;
-    }
+  .Items-Button {
+    color: #212529;
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    height: 50px;
+    width: 55px;
+    border: 2px solid #212529;
+    border-radius: 20px;
+    background: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px #3c4245;
+  }
 
-    .Items-Button:hover {
-        box-shadow: 0 3px #3c4245;
-        top: 1px;
-    }
-    
-    .Items-Button:active {
-        box-shadow: none;
-        top: 4px;
-    }
-    
-    .Items-Button:focus {
-        outline: 0;
-    }
+  .Items-Button:hover {
+    box-shadow: 0 3px #3c4245;
+    top: 1px;
+  }
 
-    .Selection-Quantity {
-        border: 2px solid;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        height: 25px;
-    }
-    
-    .Selection-Size {
-        border: 2px solid;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        height: 25px;
-        width: 100%;
-        box-shadow: 0 4px #3c4245;
-    }
+  .Items-Button:active {
+    box-shadow: none;
+    top: 4px;
+  }
 
-    .Selection-Container {
-        display: flex;
-        flex-direction: column;
-        width: 100px;
-        font-size: 12px;
-    }
+  .Items-Button:focus {
+    outline: 0;
+  }
+
+  .Selection-Quantity {
+    border: 2px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 25px;
+  }
+
+  .Selection-Size {
+    border: 2px solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 25px;
+    width: 100%;
+    box-shadow: 0 4px #3c4245;
+  }
+
+  .Selection-Container {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    font-size: 12px;
+  }
 }
 
 @media (max-width: 700px) {
-    .Items-Item-Container {
-        width: 100%;
-    }
+  .Items-Item-Container {
+    width: 100%;
+  }
 
-    .Items-Name {
-        font-size: 20px;
-    }
+  .Items-Name {
+    font-size: 20px;
+  }
 
-    .Items-Price {
-        font-size: 15px;
-    }
+  .Items-Price {
+    font-size: 15px;
+  }
 
-    .Items-Button {
-        color: #212529;
-        margin-right: 30px;
-        font-size: 20px;
-        font-weight: 700;
-        height: 50px;
-        width: 55px;
-        border: 2px solid #212529;
-        border-radius: 20px;
-        background: #f9f9f9;
-        outline: none;
-        cursor: pointer;
-        display: block;
-        position: relative;
-        border-radius: 20px;
-        box-shadow: 0 4px #3c4245;
-    }
+  .Items-Button {
+    color: #212529;
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    height: 50px;
+    width: 55px;
+    border: 2px solid #212529;
+    border-radius: 20px;
+    background: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px #3c4245;
+  }
 
-    .Items-Button:hover {
-        box-shadow: 0 3px #3c4245;
-        top: 1px;
-    }
-    
-    .Items-Button:active {
-        box-shadow: none;
-        top: 4px;
-    }
-    
-    .Items-Button:focus {
-        outline: 0;
-    }
+  .Items-Button:hover {
+    box-shadow: 0 3px #3c4245;
+    top: 1px;
+  }
 
-    .Selection-Quantity {
-        border: 2px solid;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
-        height: 25px;
-        width: 65px;
-    }
-    
-    .Selection-Size {
-        border: 2px solid;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        height: 25px;
-        width: 65px;
-        box-shadow: 0 4px #3c4245;
-    }
+  .Items-Button:active {
+    box-shadow: none;
+    top: 4px;
+  }
 
-    .Selection-Container {
-        display: flex;
-        flex-direction: column;
-        width: 100px;
-        font-size: 12px;
-    }
+  .Items-Button:focus {
+    outline: 0;
+  }
+
+  .Selection-Quantity {
+    border: 2px solid;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 25px;
+    width: 65px;
+  }
+
+  .Selection-Size {
+    border: 2px solid;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 25px;
+    width: 65px;
+    box-shadow: 0 4px #3c4245;
+  }
+
+  .Selection-Container {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    font-size: 12px;
+  }
 }
