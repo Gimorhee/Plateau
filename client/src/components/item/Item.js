@@ -12,7 +12,7 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
     size: null,
     quantity: null
   });
-  
+
   const changeSize = e => {
     setCartData({ ...cartData, size: e.target.value });
   };
@@ -24,7 +24,13 @@ const Item = ({ match, addToCart, getItem, items: { loading, item } }) => {
   const onSubmit = e => {
     e.preventDefault();
 
-    addToCart({ ...cartData, name: item.name, price: item.price, type: item.type , image: item.image});
+    addToCart({
+      ...cartData,
+      name: item.name,
+      price: item.price,
+      type: item.type,
+      image: item.image
+    });
   };
 
   useEffect(() => {

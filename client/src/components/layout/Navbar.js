@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Navbar, NavbarBrand } from "reactstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
@@ -30,11 +29,11 @@ const Navibar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
 
   return (
     <Fragment>
-      <Navbar id="navbar" className="Nav" light expand="md">
-        <NavbarBrand className="Nav-Brand" href="/">
+      <div className="Navbar">
+        <a className="Nav-Brand" href="/">
           Plateau
-        </NavbarBrand>
-      </Navbar>
+        </a>
+      </div>
       <div className="Sub-Nav">
         {!loading && (
           <Fragment>{isAuthenticated ? authUser : guestUser}</Fragment>
@@ -54,7 +53,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Navibar);
+export default connect(mapStateToProps, { logout })(Navibar);

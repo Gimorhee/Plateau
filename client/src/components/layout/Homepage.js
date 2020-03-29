@@ -32,7 +32,4 @@ const mapStateToProps = state => ({
   items: state.items
 });
 
-export default connect(
-  mapStateToProps,
-  { getItems }
-)(Homepage);
+export default connect(mapStateToProps, { getItems })(Homepage);
