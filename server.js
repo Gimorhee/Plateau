@@ -16,7 +16,9 @@ app.use("/api/delivery", require("./routes/api/deliveryInfo"));
 app.use("/api/payment", require("./routes/api/payment"));
 app.use("/api/order", require("./routes/api/order"));
 
+// Server static assets if in production
 if (process.env.NODE_ENV === "production") {
+  // Set static folder
   app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
